@@ -1,0 +1,20 @@
+.navbar {
+    background: #F4F4F4;
+}
+
+.navlink {
+    border-radius: 17px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.navlink:hover {
+    background-color: rgb(204, 197, 197);
+    padding: 1px;
+
+
+}
