@@ -13,8 +13,18 @@
 }
 
 .navlink:hover {
-    background-color: rgb(204, 197, 197);
+    background-color: rgb(126, 122, 122);
     padding: 1px;
 
 
+}
+
+.nav-dropdown {
+    transition: opacity 0.5s ease;
+
+}
+
+
+.logoimg {
+    width: 70px;
 }
