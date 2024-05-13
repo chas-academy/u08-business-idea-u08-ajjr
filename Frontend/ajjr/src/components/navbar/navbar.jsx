@@ -10,42 +10,48 @@ function BasicExample() {
   const [isNavDropdownOpen, setIsNavDropdownOpen] = useState(false);
 
   return (
-    <Navbar expand="lg" className="navbar-custom">
-      <Container className="">
-        <Navbar.Brand href="#home">
-          <img src={logoImg} alt="Logotyp" className="logoimg " />{" "}
-          {/* Använd den importerade bilden här */}
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="#home" className="nav-link-custom">
-              Hem
-            </Nav.Link>
-            <NavDropdown
-              title="Produkter"
-              id="basic-nav-dropdown"
-              show={isNavDropdownOpen}
-              onMouseEnter={() => setIsNavDropdownOpen(true)}
-              onMouseLeave={() => setIsNavDropdownOpen(false)}
-            >
-              <NavDropdown.Item href="#action/3.1">Musk</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">Oud</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Parfym</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#link" className="nav-link-custom">
-              Om oss
-            </Nav.Link>
-            <Nav.Link href="#link" className="nav-link-custom">
-              Kontakta oss
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+    <Navbar expand="lg" className="navbar-custom px-5">
+      <Navbar.Brand href="#home">
+        <img src={logoImg} alt="Logotyp" className="logoimg " />{" "}
+        {/* Använd den importerade bilden här */}
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ms-auto fs-3">
+          <Nav.Link href="#home" className="nav-link-custom">
+            Hem
+          </Nav.Link>
+          <NavDropdown
+            title="Produkter"
+            /* id="basic-nav-dropdown" */
+            show={isNavDropdownOpen}
+            onMouseEnter={() => setIsNavDropdownOpen(true)}
+            onMouseLeave={() => setIsNavDropdownOpen(false)}
+          >
+            <NavDropdown.Item href="#action/3.1">Herr</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.1">Dam</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.1">Unisex</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.1">Musk</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">Oud</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Testers
+            </NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link href="#link" className="nav-link-custom">
+            Om oss
+          </Nav.Link>
+          <Nav.Link href="#link" className="nav-link-custom">
+            Kontakta oss
+          </Nav.Link>
+          <Nav.Link href="#link" className="nav-link-custom">
+            Logga in
+          </Nav.Link>
+          <Nav.Link href="#link" className="nav-link-custom">
+            Registrera dig
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }

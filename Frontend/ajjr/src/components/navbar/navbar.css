@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Balthazar&display=swap');
+
+
 .navbar {
     background: #F4F4F4;
+    font-family: "Balthazar", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .navlink {
@@ -8,8 +14,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-
+.nav-link {
+    padding-right: 50px !important;
 }
 
 .navlink:hover {
@@ -26,5 +34,13 @@
 
 
 .logoimg {
-    width: 70px;
+    width: 125px;
+}
+
+.dropdown-toggle::after {
+    content: none !important;
+}
+
+.dropdown-menu {
+    font-size: 20px;
 }
