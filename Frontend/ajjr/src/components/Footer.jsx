@@ -1,166 +1,145 @@
 import React from "react";
+import { Row, Col } from "react-bootstrap";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookSquare } from "react-icons/fa";
 import { AiFillTikTok } from "react-icons/ai";
 
 const Footer = () => {
-  const OmossLinks = [
-    { label: "Om Ajjr", icon: FaRegArrowAltCircleRight, Link: "om ajjr" },
-    {
-      label: "Välgörenhet",
-      icon: FaRegArrowAltCircleRight,
-      Link: "välgörenhet",
-    },
-    {
-      label: "Sammarbeten",
-      icon: FaRegArrowAltCircleRight,
-      Link: "sammarbeten",
-    },
-    {
-      label: "Kontakta oss",
-      icon: FaRegArrowAltCircleRight,
-      Link: "kontakta oss",
-    },
-  ];
-
-  const kundserviceLinks = [
-    {
-      label: "Leveransinformation",
-      icon: FaRegArrowAltCircleRight,
-      Link: "leveransinformation",
-    },
-    {
-      label: "Retur & Byten",
-      icon: FaRegArrowAltCircleRight,
-      Link: "retur&byten",
-    },
-    {
-      label: "FAQ - vanliga frågor och svar",
-      icon: FaRegArrowAltCircleRight,
-      Link: "faq",
-    },
-  ];
-
-  const dofterLinks = [
-    {
-      label: "Herr",
-      icon: FaRegArrowAltCircleRight,
-      Link: "herr",
-    },
-
-    {
-      label: "Dam",
-      icon: FaRegArrowAltCircleRight,
-      Link: "dam",
-    },
-
-    {
-      label: "Unisex",
-      icon: FaRegArrowAltCircleRight,
-      Link: "unisex",
-    },
-
-    {
-      label: "Musk & Oud",
-      icon: FaRegArrowAltCircleRight,
-      Link: "musk & oud",
-    },
-  ];
+  const linksData = {
+    Omoss: [
+      { label: "Om Ajjr", icon: FaRegArrowAltCircleRight, link: "om-ajjr" },
+      {
+        label: "Välgörenhet",
+        icon: FaRegArrowAltCircleRight,
+        link: "valgorenhet",
+      },
+      {
+        label: "Sammarbeten",
+        icon: FaRegArrowAltCircleRight,
+        link: "sammarbeten",
+      },
+      {
+        label: "Kontakta oss",
+        icon: FaRegArrowAltCircleRight,
+        link: "kontakta-oss",
+      },
+    ],
+    Kundservice: [
+      {
+        label: "Leveransinformation",
+        icon: FaRegArrowAltCircleRight,
+        link: "leveransinformation",
+      },
+      {
+        label: "Retur & Byten",
+        icon: FaRegArrowAltCircleRight,
+        link: "retur-byten",
+      },
+      {
+        label: "FAQ - vanliga frågor och svar",
+        icon: FaRegArrowAltCircleRight,
+        link: "faq",
+      },
+    ],
+    Dofter: [
+      { label: "Herr", icon: FaRegArrowAltCircleRight, link: "herr" },
+      { label: "Dam", icon: FaRegArrowAltCircleRight, link: "dam" },
+      { label: "Unisex", icon: FaRegArrowAltCircleRight, link: "unisex" },
+      { label: "Musk & Oud", icon: FaRegArrowAltCircleRight, link: "musk-oud" },
+    ],
+  };
 
   const socialLinks = [
-    { icon: GrInstagram, size: 40, scale: 1.3 },
-    { icon: AiFillTikTok, size: 40, scale: 1.3 },
-    { icon: FaFacebookSquare, size: 40, scale: 1.3 },
+    {
+      icon: GrInstagram,
+      color: "brown",
+      link: "instagram.com",
+    },
+    {
+      icon: AiFillTikTok,
+      color: "black",
+      link: "tiktok.com",
+    },
+    {
+      icon: FaFacebookSquare,
+      color: "blue",
+      link: "facebook.com",
+    },
   ];
 
   return (
-    <>
+    <div
+      className="container-fluid bg-gainsboro  footer pt-5 mt-5 wow fadeIn"
+      data-wow-delay="0.1s"
+    >
       <div
-        className="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
-        data-wow-delay="0.1s"
+        className="container py-5"
+        style={{ marginLeft: "5rem", marginRight: "15rem" }}
       >
-        <div className="container py-5">
-          <div className="row g-5">
-            <div className="col-lg-3 col-md-6">
-              <h4 className="section-title ff-secondary text-start text-primary">
-                OM OSS
-              </h4>
-              {OmossLinks.map((link, number) => (
+        <Row>
+          {/* Links Sections */}
+          {Object.entries(linksData).map(([title, links], index) => (
+            <Col xs={12} md={6} lg={3} key={index}>
+              <h5 className="section-title ff-secondary text-start fw-bold ">
+                {title}
+              </h5>
+              <div>
+                {links.map((link, idx) => (
+                  <a
+                    key={idx}
+                    className="btn btn-link d-flex align-items-center mb-3 text-black "
+                    href={link.link}
+                  >
+                    {React.createElement(link.icon, { className: "me-2" })}
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </Col>
+          ))}
+          {/* Social Media Section */}
+          <Col
+            xs={12}
+            md={6}
+            lg={3}
+            className="d-flex flex-column justify-content-lg-end"
+          >
+            <h6 className="section-title ff-secondary text-start d-flex align-items-center fw-bold ">
+              Följ våra sociala medier
+            </h6>
+            <div className="d-flex flex-wrap">
+              {/* Wrap links in a flex container */}
+              {socialLinks.map((link, index) => (
                 <a
-                  key={number}
-                  className="btn btn-link d-flex align-items-center"
-                  href={link.Link}
+                  key={index}
+                  href={link.link} // Add href attribute here
+                  className="btn btn-link d-flex align-items-center me-3 mb-3"
                 >
-                  {React.createElement(link.icon, { className: "me-2" })}
-                  {link.label}
+                  {/* Wrap icon in a flex container */}
+                  {link.icon === GrInstagram ||
+                  link.icon === AiFillTikTok ||
+                  link.icon === FaFacebookSquare ? (
+                    <div className="d-flex align-items-center me-2">
+                      {React.createElement(link.icon, {
+                        style: { fontSize: "21px", color: link.color },
+                        className: "m-2",
+                      })}
+                    </div>
+                  ) : (
+                    React.createElement(link.icon, {
+                      style: { fontSize: "21px", color: link.color },
+                      className: "m-2",
+                    })
+                  )}
+                  <span>{link.label}</span>
                 </a>
               ))}
             </div>
-          </div>
-        </div>
-
-        <div className="container py-5">
-          <div className="row g-5">
-            <div className="col-lg-3 col-md-6">
-              <h4 className="section-title ff-secondary text-start text-primary">
-                Kundservice
-              </h4>
-              {kundserviceLinks.map((link, number) => (
-                <a
-                  key={number}
-                  className="btn btn-link d-flex align-items-center"
-                  href={link.Link}
-                >
-                  {React.createElement(link.icon, { className: "me-2" })}
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="container py-5">
-          <div className="row g-5">
-            <div className="col-lg-3 col-md-6">
-              <h4 className="section-title ff-secondary text-start text-primary">
-                Dofter
-              </h4>
-              {dofterLinks.map((link, number) => (
-                <a
-                  key={number}
-                  className="btn btn-link d-flex align-items-center"
-                  href={link.Link}
-                >
-                  {React.createElement(link.icon, { className: "me-2" })}
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="container py-5">
-          <div className="row g-5">
-            <div className="col-lg-3 col-md-6">
-              <h4 className="section-title ff-secondary text-start text-primary">
-                Föjl våra sociala medier
-              </h4>
-              {socialLinks.map((link, number) => (
-                <a
-                  key={number}
-                  className="btn btn-link d-flex align-items-center"
-                  href={link.Link}
-                >
-                  {React.createElement(link.icon, { className: "me-2" })}
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+          </Col>
+        </Row>
       </div>
-    </>
+    </div>
   );
 };
 
