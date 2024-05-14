@@ -105,7 +105,7 @@ const Footer = () => {
             lg={3}
             className="d-flex flex-column justify-content-lg-end"
           >
-            <h6 className="section-title ff-secondary text-start d-flex align-items-center fw-bold ">
+            <h6 className="section-title ff-secondary text-start d-flex align-items-center ">
               Följ våra sociala medier
             </h6>
             <div className="d-flex flex-wrap">
