@@ -40,3 +40,39 @@
 .read-the-docs {
   color: #888;
 }
+
+.faq-container {
+  padding: 20px;
+}
+
+.faq-wrapper {
+  width: 1354px;
+  height: 858px;
+  background-color: #F6F6F6;
+  padding: 20px;
+  overflow: auto; 
+}
+
+.faq-box {
+  width: 100%;
+}
+
+.faq {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #FFFFFF; 
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.faq.open {
+  background-color: #E0E0E0;
+}
+
+.faq-question {
+  font-weight: bold;
+}
+
+.faq-answer {
+  margin-top: 10px;
+}

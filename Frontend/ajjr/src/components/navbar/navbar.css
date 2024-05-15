@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Balthazar&display=swap');
+
+
+.navbar {
+    background: #F4F4F4;
+    font-family: "Balthazar", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.navlink {
+    border-radius: 17px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link {
+    padding-right: 50px !important;
+}
+
+.navlink:hover {
+    background-color: rgb(126, 122, 122);
+    padding: 1px;
+
+
+}
+
+.nav-dropdown {
+    transition: opacity 0.5s ease;
+
+}
+
+
+.logoimg {
+    width: 125px;
+}
+
+.dropdown-toggle::after {
+    content: none !important;
+}
+
+.dropdown-menu {
+    font-size: 20px;
+}
