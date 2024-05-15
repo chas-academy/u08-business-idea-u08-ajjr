@@ -54,16 +54,19 @@ const Footer = () => {
     {
       icon: GrInstagram,
       color: "brown",
+      size: 40,
       link: "instagram.com",
     },
     {
       icon: AiFillTikTok,
       color: "black",
+      size: 40,
       link: "tiktok.com",
     },
     {
       icon: FaFacebookSquare,
       color: "blue",
+      size: 40,
       link: "facebook.com",
     },
   ];
@@ -88,7 +91,7 @@ const Footer = () => {
                 {links.map((link, idx) => (
                   <a
                     key={idx}
-                    className="btn btn-link d-flex align-items-center mb-3 text-black "
+                    className="btn btn-link d-flex align-items-center mb-3 text-black fw-normal "
                     href={link.link}
                   >
                     {React.createElement(link.icon, { className: "me-2" })}
@@ -105,10 +108,10 @@ const Footer = () => {
             lg={3}
             className="d-flex flex-column justify-content-lg-end"
           >
-            <h6 className="section-title ff-secondary text-start d-flex align-items-center ">
+            <h6 className="section-title ff-secondary text-start d-flex align-items-center fw-normal  ">
               Följ våra sociala medier
             </h6>
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap" style={{ marginLeft: "-4rem" }}>
               {/* Wrap links in a flex container */}
               {socialLinks.map((link, index) => (
                 <a
@@ -122,13 +125,13 @@ const Footer = () => {
                   link.icon === FaFacebookSquare ? (
                     <div className="d-flex align-items-center me-2">
                       {React.createElement(link.icon, {
-                        style: { fontSize: "21px", color: link.color },
+                        style: { fontSize: link.size, color: link.color },
                         className: "m-2",
                       })}
                     </div>
                   ) : (
                     React.createElement(link.icon, {
-                      style: { fontSize: "21px", color: link.color },
+                      style: { fontSize: link.size, color: link.color },
                       className: "m-2",
                     })
                   )}
