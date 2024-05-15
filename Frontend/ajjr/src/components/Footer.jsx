@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookSquare } from "react-icons/fa";
 import { AiFillTikTok } from "react-icons/ai";
@@ -8,45 +7,21 @@ import { AiFillTikTok } from "react-icons/ai";
 const Footer = () => {
   const linksData = {
     Omoss: [
-      { label: "Om Ajjr", icon: FaRegArrowAltCircleRight, link: "om-ajjr" },
-      {
-        label: "Välgörenhet",
-        icon: FaRegArrowAltCircleRight,
-        link: "valgorenhet",
-      },
-      {
-        label: "Sammarbeten",
-        icon: FaRegArrowAltCircleRight,
-        link: "sammarbeten",
-      },
-      {
-        label: "Kontakta oss",
-        icon: FaRegArrowAltCircleRight,
-        link: "kontakta-oss",
-      },
+      { label: "Om Ajjr", link: "/om-ajjr" },
+      { label: "Välgörenhet", link: "/valgorenhet" },
+      { label: "Sammarbeten", link: "/sammarbeten" },
+      { label: "Kontakta oss", link: "/kontakta-oss" },
     ],
     Kundservice: [
-      {
-        label: "Leveransinformation",
-        icon: FaRegArrowAltCircleRight,
-        link: "leveransinformation",
-      },
-      {
-        label: "Retur & Byten",
-        icon: FaRegArrowAltCircleRight,
-        link: "retur-byten",
-      },
-      {
-        label: "FAQ - vanliga frågor och svar",
-        icon: FaRegArrowAltCircleRight,
-        link: "faq",
-      },
+      { label: "Leveransinformation", link: "/leveransinformation" },
+      { label: "Retur & Byten", link: "/retur-byten" },
+      { label: "FAQ - vanliga frågor och svar", link: "/faq" },
     ],
     Dofter: [
-      { label: "Herr", icon: FaRegArrowAltCircleRight, link: "herr" },
-      { label: "Dam", icon: FaRegArrowAltCircleRight, link: "dam" },
-      { label: "Unisex", icon: FaRegArrowAltCircleRight, link: "unisex" },
-      { label: "Musk & Oud", icon: FaRegArrowAltCircleRight, link: "musk-oud" },
+      { label: "Herr", link: "/herr" },
+      { label: "Dam", link: "/dam" },
+      { label: "Unisex", link: "/unisex" },
+      { label: "Musk & Oud", link: "/musk-oud" },
     ],
   };
 
@@ -87,18 +62,18 @@ const Footer = () => {
               <h5 className="section-title ff-secondary text-start fw-bold ">
                 {title}
               </h5>
-              <div>
+              <ul className="list-unstyled">
                 {links.map((link, idx) => (
-                  <a
-                    key={idx}
-                    className="btn btn-link d-flex align-items-center mb-3 text-black fw-normal "
-                    href={link.link}
-                  >
-                    {React.createElement(link.icon, { className: "me-2" })}
-                    {link.label}
-                  </a>
+                  <li key={idx} className="m-2">
+                    <a
+                      href={link.link}
+                      className="text-dark text-light fw-normal"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </Col>
           ))}
           {/* Social Media Section */}
