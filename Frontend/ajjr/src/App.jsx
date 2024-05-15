@@ -1,16 +1,36 @@
-// import React, { useState } from "react";
-
-// import Toast from "react-bootstrap/Toast";
-// import Container from "react-bootstrap/Container";
-// import Button from "react-bootstrap/Button";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import FAQ from "./pages/faq/faq";
 import "./App.css";
 
 const App = () => {
   return (
-    <>
-      <div className="main-content"> </div>
-    </>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            {}
+            {}
+            <li>
+              <Link to="/faq">FAQ</Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="main-content">
+          <Routes>
+            {}
+            {}
+            <Route path="/faq" element={<FAQ faqData={faqData} />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 };
+
+const faqData = [
+  { question: 'Har ni en butik?', answer: 'Ja, Chas academy lokal 7' },
+  { question: 'Vad är Musk Oud?', answer: 'Parfym från Mekka' },
+];
 
 export default App;
