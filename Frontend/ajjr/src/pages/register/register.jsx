@@ -9,4 +9,18 @@ function RegisterPage() {
         password: '',
         confirmPassword: ''
     });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Implementera validering och hantering här
+        console.log('Form Data Submitted:', formData);
+    };
+
+    
     }
