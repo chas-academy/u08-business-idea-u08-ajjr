@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.jsx'
-import Navbar from './/components/navbar/navbar.jsx'; // Se till att stigen är korrekt
+import Navbar from './/components/navbar/Navbar.jsx'; // Se till att stigen är korrekt
 import './index.css'
 
 // Skapa en React-root för appen
