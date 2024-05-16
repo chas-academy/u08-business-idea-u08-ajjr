@@ -1,81 +1,165 @@
-import React, { useState } from 'react';
-import { Container, Form, Button, Card } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './register.css';
+import React, { useState } from "react";
+import { Container, Form, Button, Card } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./register.css";
+
+// function RegisterPage() {
+//   const [formData, setFormData] = useState({
+//     email: "",
+//     password: "",
+//     confirmPassword: "",
+//   });
+
+//   const handleChange = (e) => {
+//     setFormData({
+//       ...formData,
+//       [e.target.name]: e.target.value,
+//     });
+//   };
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log("Form Data Submitted:", formData);
+//   };
 
 function RegisterPage() {
     const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-        confirmPassword: ''
+      email: "",
+      password: "",
+      confirmPassword: "",
     });
-
+  
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+      });
     };
+  
     const handleSubmit = (e) => {
-        e.preventDefault();
-        // Implementera validering och hantering här
-        console.log('Form Data Submitted:', formData);
+      e.preventDefault();
+      // Kontrollera att alla fält är ifyllda
+      if (!formData.email || !formData.password || !formData.confirmPassword) {
+        alert('Alla fält måste fyllas i.');
+        return;
+      }
+  
+      // Kontrollera att lösenorden matchar
+      if (formData.password !== formData.confirmPassword) {
+        alert('Lösenorden matchar inte.');
+        return;
+      }
+  
+      // Mockad API-anrop för att simulera registrering
+      registerUser(formData);
     };
-    return (
+  
+    // Funktion för att simulera användarregistrering
+    // const registerUser = async (userData) => {
+    //   console.log("Försöker registrera användare:", userData);
+    //   // Simulera en API-anrop
+    //   try {
+    //     await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulerar nätverksfördröjning
+    //     alert('Registrering lyckades!');
+    //     // Rensa formuläret eller omdirigera användaren här
+    //   } catch (error) {
+    //     console.error('Registrering misslyckades:', error);
+    //     alert('Registrering misslyckades. Försök igen senare.');
+    //   }
+    // };
+    const registerUser = async (userData) => {
+        console.log("Försöker registrera användare:", userData);
+        try {
 
-             // skapat en registrerings formulär
-        <div className="register-background"> 
-            <Container>
-                <Card style={{ width: '24rem', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}>
-                    <Card.Body>
-                        <Card.Title className="text-center mb-4">Registrera dig</Card.Title>
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Label>E-postadress</Form.Label>
-                                <Form.Control
-                                    type="email"
-                                    placeholder="Ange e-postadress"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </Form.Group>
+            //denna länk ska ändras när backenden är klar 
+          const response = await fetch('https://minserver.com/api/register', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+          });
+      
+          if (!response.ok) {
+            throw new Error('Något gick fel vid registreringen');
+          }
+      
+          const data = await response.json(); // antar att servern returnerar JSON
+          console.log('Registrering lyckades:', data);
+          alert('Registrering lyckades!');
+          // Rensa formuläret eller omdirigera användaren här
+        } catch (error) {
+          console.error('Registrering misslyckades:', error);
+          alert('Registrering misslyckades. Försök igen senare.');
+        }
+      };
 
-                            <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Label>Lösenord</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    placeholder="Lösenord"
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formConfirmPassword">
-                                <Form.Label>Bekräfta lösenord</Form.Label>
-                                <Form.Control
-                                    type="password"
-                                    placeholder="Bekräfta lösenord"
-                                    name="confirmPassword"
-                                    value={formData.confirmPassword}
-                                    onChange={handleChange}
-                                    required
-                                />
-                            </Form.Group>
 
-                            <Button variant="primary" type="submit" className="w-100">
-                                Registrera
-                            </Button>
-                        </Form>
-                    </Card.Body>
-                </Card>
-            </Container>
-        </div>
-    );
+  const backgroundStyle = {
+    background:
+      "url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg') no-repeat center center fixed",
+    backgroundSize: "cover",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  };
 
-    }
+  return (
+    <div style={backgroundStyle}>
+      <Container className="formulor d-flex justify-content-center align-items-center vh-100">
+        <Card
+          className="w-100"
+          style={{ maxWidth: "400px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
+        >
+          <Card.Body>
+            <Card.Title className="text-center mb-4">Registrera dig</Card.Title>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>E-postadress</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Ange e-postadress"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Lösenord</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Lösenord"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formConfirmPassword">
+                <Form.Label>Bekräfta lösenord</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Bekräfta lösenord"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Button variant="primary" type="submit" className="w-100">
+                Registrera
+              </Button>
+            </Form>
+          </Card.Body>
+        </Card>
+      </Container>
+    </div>
+  );
+}
 
 export default RegisterPage;
