@@ -3,13 +3,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.jsx'
-import Navigation from './components/navbar/Navbar.jsx'; // Se till att stigen är korrekt
+import Navigation from './components/navbar/navbar.jsx'; // Se till att stigen är korrekt
 import './index.css'
 import { BrowserRouter, RouterProvider, createBrowserRouter, Route, Link } from 'react-router-dom';
-import AboutUs from './pages/aboutus/Aboutus.jsx';
-import Perfumes from './pages/perfumes/Perfumes.jsx';
-import FAQ from './pages/faq/Faq.jsx';
-import Login from './pages/login/Login.jsx';
+import AboutUs from './pages/aboutus/aboutus.jsx';
+import Perfumes from './pages/perfumes/perfumes.jsx';
+import FAQ from './pages/faq/faq.jsx';
+import Login from './pages/login/login.jsx';
 
 const router = createBrowserRouter([
   {
