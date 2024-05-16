@@ -3,97 +3,69 @@ import { Container, Form, Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./register.css";
 
-// function RegisterPage() {
-//   const [formData, setFormData] = useState({
-//     email: "",
-//     password: "",
-//     confirmPassword: "",
-//   });
-
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Form Data Submitted:", formData);
-//   };
-
 function RegisterPage() {
-    const [formData, setFormData] = useState({
-      email: "",
-      password: "",
-      confirmPassword: "",
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+    firstName: "", // Nytt fält för förnamn
+    lastName: "", // Nytt fält för efternamn
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-  
-    const handleChange = (e) => {
-      setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Kontrollera att alla fält är ifyllda
+    if (
+      !formData.email ||
+      !formData.password ||
+      !formData.confirmPassword ||
+      !formData.firstName ||
+      !formData.lastName
+    ) {
+      alert("Alla fält måste fyllas i.");
+      return;
+    }
+
+    // Kontrollera att lösenorden matchar
+    if (formData.password !== formData.confirmPassword) {
+      alert("Lösenorden matchar inte.");
+      return;
+    }
+
+    // Anropa registreringsfunktionen
+    registerUser(formData);
+  };
+
+  const registerUser = async (userData) => {
+    console.log("Försöker registrera användare:", userData);
+    try {
+      const response = await fetch("https://minserver.com/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
       });
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      // Kontrollera att alla fält är ifyllda
-      if (!formData.email || !formData.password || !formData.confirmPassword) {
-        alert('Alla fält måste fyllas i.');
-        return;
+
+      if (!response.ok) {
+        throw new Error("Något gick fel vid registreringen");
       }
-  
-      // Kontrollera att lösenorden matchar
-      if (formData.password !== formData.confirmPassword) {
-        alert('Lösenorden matchar inte.');
-        return;
-      }
-  
-      // Mockad API-anrop för att simulera registrering
-      registerUser(formData);
-    };
-  
-    // Funktion för att simulera användarregistrering
-    // const registerUser = async (userData) => {
-    //   console.log("Försöker registrera användare:", userData);
-    //   // Simulera en API-anrop
-    //   try {
-    //     await new Promise((resolve) => setTimeout(resolve, 1000)); // Simulerar nätverksfördröjning
-    //     alert('Registrering lyckades!');
-    //     // Rensa formuläret eller omdirigera användaren här
-    //   } catch (error) {
-    //     console.error('Registrering misslyckades:', error);
-    //     alert('Registrering misslyckades. Försök igen senare.');
-    //   }
-    // };
-    const registerUser = async (userData) => {
-        console.log("Försöker registrera användare:", userData);
-        try {
 
-            //denna länk ska ändras när backenden är klar 
-          const response = await fetch('https://minserver.com/api/register', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(userData)
-          });
-      
-          if (!response.ok) {
-            throw new Error('Något gick fel vid registreringen');
-          }
-      
-          const data = await response.json(); // antar att servern returnerar JSON
-          console.log('Registrering lyckades:', data);
-          alert('Registrering lyckades!');
-          // Rensa formuläret eller omdirigera användaren här
-        } catch (error) {
-          console.error('Registrering misslyckades:', error);
-          alert('Registrering misslyckades. Försök igen senare.');
-        }
-      };
-
-
+      const data = await response.json();
+      console.log("Registrering lyckades:", data);
+      alert("Registrering lyckades!");
+    } catch (error) {
+      console.error("Registrering misslyckades:", error);
+      alert("Registrering misslyckades. Försök igen senare.");
+    }
+  };
 
   const backgroundStyle = {
     background:
@@ -115,6 +87,30 @@ function RegisterPage() {
           <Card.Body>
             <Card.Title className="text-center mb-4">Registrera dig</Card.Title>
             <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formBasicFirstName">
+                <Form.Label>Förnamn</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ange förnamn"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicLastName">
+                <Form.Label>Efternamn</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ange efternamn"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>E-postadress</Form.Label>
                 <Form.Control
