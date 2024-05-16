@@ -10,6 +10,8 @@ import AboutUs from './pages/aboutus/aboutus.jsx';
 import Perfumes from './pages/perfumes/perfumes.jsx';
 import FAQ from './pages/faq/faq.jsx';
 import Login from './pages/login/login.jsx';
+import RegisterPage from './pages/register/register.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "loggain",
         element: <Login></Login>
+      },
+      {
+        path: "RegisterPage",
+        element: <RegisterPage></RegisterPage>
       }
 
     ]
