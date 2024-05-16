@@ -63,7 +63,7 @@ function Navigation() {
           <Nav.Link as={Link} to="loggain" className="nav-link-custom">
             Logga in
           </Nav.Link>
-          <Nav.Link as={Link} to="registrera" className="nav-link-custom">
+          <Nav.Link as={Link} to="RegisterPage" className="nav-link-custom">
             Registrera dig
           </Nav.Link>
         </Nav>

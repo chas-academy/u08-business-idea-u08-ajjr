@@ -1,12 +1,12 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link, Outlet } from "react-router-dom";
-import FAQ from "./pages/faq/Faq";
+import FAQ from "./pages/faq/faq";
 import "./App.css";
-import Footer from "./components/footer/Footer";
-import AboutUs from "./pages/aboutus/Aboutus";
+import Footer from "./components/footer/footer";
+import AboutUs from "./pages/aboutus/aboutus";
 import { FaQq } from "react-icons/fa";
-import Navigation from "./components/navbar/Navbar";
+import Navigation from "./components/navbar/navbar";
 
 const App = () => {
   return (
