@@ -8,8 +8,8 @@ function RegisterPage() {
     email: "",
     password: "",
     confirmPassword: "",
-    firstName: "", // Nytt fält för förnamn
-    lastName: "", // Nytt fält för efternamn
+    firstName: "", 
+    lastName: "", 
   });
 
   const handleChange = (e) => {
