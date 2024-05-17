@@ -51,7 +51,7 @@
 .faq-wrapper {
   width: 1354px;
   height: 858px;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   padding: 20px;
   overflow: auto;
 }
@@ -63,13 +63,13 @@
 .faq {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .faq.open {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 }
 
 .faq-question {
@@ -78,4 +78,10 @@
 
 .faq-answer {
   margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  .reverse-columns {
+    flex-direction: column-reverse;
+  }
 }
