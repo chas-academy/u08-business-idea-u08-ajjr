@@ -1,14 +1,22 @@
-// import React, { useState } from "react";
 
-// import Toast from "react-bootstrap/Toast";
-// import Container from "react-bootstrap/Container";
-// import Button from "react-bootstrap/Button";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link, Outlet } from "react-router-dom";
+import FAQ from "./pages/faq/faq";
 import "./App.css";
+import Footer from "./components/footer/footer";
+import AboutUs from "./pages/aboutus/aboutus";
+import { FaQq } from "react-icons/fa";
+import Navigation from "./components/navbar/navbar";
 
 const App = () => {
   return (
     <>
-      <div className="main-content"> </div>
+
+
+      <Navigation></Navigation>
+
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   );
 };
