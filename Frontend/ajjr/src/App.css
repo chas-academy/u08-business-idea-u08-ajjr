@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+
+body {
+  overflow-x: hidden;
+  /* Förhindra horisontell scrollning på hela sidan */
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;

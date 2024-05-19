@@ -1,0 +1,113 @@
+/*  .carousel-container {
+     display: flex;
+     overflow-x: auto;
+     overflow-y: hidden;
+     scroll-behavior: smooth;
+     padding: 0 50px;
+
+ }
+
+ .product-card {
+     min-width: 18%;
+
+     flex: 0 0 auto;
+     transition: transform 0.2s;
+ }
+
+ .product-card:hover {
+     transform: scale(1.05);
+ }
+
+
+ .carousel-container::-webkit-scrollbar {
+     display: none;
+ }
+
+
+ .carousel-container {
+     -ms-overflow-style: none;
+     scrollbar-width: none;
+ }
+
+ .carousel-btn {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     z-index: 1000;
+     background: none;
+     border: none;
+     font-size: 2rem;
+     color: black;
+     cursor: pointer;
+     padding: 0;
+     width: 50px;
+     height: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .carousel-btn:focus {
+     outline: none;
+ }
+
+ .left-btn {
+     left: 0;
+ }
+
+ .right-btn {
+     right: 0;
+ }
+
+ .carousel-btn:hover {
+     color: #555;
+ }
+
+
+ @media (max-width: 768px) {
+     .carousel-btn {
+         display: none;
+     }
+ } */
+
+.perfumes-page {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+}
+
+.filter-section {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 15px;
+    position: relative;
+    transition: background-color 0.3s ease;
+    /* Lägg till en övergångseffekt för bakgrundsfärgen */
+}
+
+.filter-btn.active::after {
+    content: '';
+    position: absolute;
+    width: calc(100% - 30px);
+    /* Bredden minus padding */
+    height: 2px;
+    background-color: black;
+    bottom: 0;
+    left: 15px;
+    /* Vänster padding */
+}
+
+/* Bakgrundsfärg för aktiva knappar */
+.filter-btn.active {
+    background-color: #f0f0f0;
+    /* Ljusgrå bakgrund för aktiva knappar */
+}
