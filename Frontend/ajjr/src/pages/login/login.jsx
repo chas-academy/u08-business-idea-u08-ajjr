@@ -37,6 +37,37 @@ function LoginPage() {
     }
   };
 
+  const handlePasswordReset = (event) => {
+    event.preventDefault();
+    if (password !== confirmPassword) {
+      setError('Lösenorden matchar inte.');
+      setSuccess('');
+      return;
+    }
+    // Simulera API-anrop för att uppdatera lösenordet
+    fetch('/api/update-password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, newPassword: password })
+    })
+    .then(response => response.json())
+    .then(data => {
+      setError('');
+      if (data.success) {
+        setSuccess('Ditt lösenord har ändrats.');
+        setIsResettingPassword(false);  // Återgå till inloggningssidan
+      } else {
+        setError('Kunde inte ändra lösenordet.');
+      }
+    })
+    .catch(() => {
+      setError('Ett fel inträffade vid anslutning till servern.');
+    });
+  };
+
+ 
 }
 
 export default LoginPage;
