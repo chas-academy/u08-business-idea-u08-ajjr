@@ -144,8 +144,8 @@ function LoginPage() {
                   className="btn btn-link w-100"
                   onClick={() => setIsResettingPassword(false)}
                 >
-                  Gå tillbaka  
-                </button> //går tillbaka till loginsidan 
+                  Gå tillbaka
+                </button> //går tillbaka till loginsidan
               )}
             </form>
           </div>
