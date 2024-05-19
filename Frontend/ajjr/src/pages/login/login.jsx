@@ -112,7 +112,7 @@ function LoginPage() {
                   required={!isResettingPassword}
                 />
               </div>
-              {isResettingPassword && (
+              {isResettingPassword && (   //funktion för att bli derigeras till glömtlösen sida för att ändra lösenord
                 <div className="mb-3">
                   <label htmlFor="confirmPassword" className="form-label">
                     Bekräfta lösenord
