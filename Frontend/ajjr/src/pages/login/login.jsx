@@ -24,7 +24,7 @@ function LoginPage() {
     event.preventDefault();
     const user = users.find((user) => user.email === email);
     if (!user) {
-      setError("Inget konto finns med den angivna e-postadressen.");
+      setError("Inget konto finns med den angivna e-postadressen."); //Kontroll görs mot databasen om det finns ett konto med de matade emailkonto
       setSuccess("");
     } else if (user.password !== password) {
       setError("Fel lösenord angivet.");
@@ -38,12 +38,13 @@ function LoginPage() {
   const handlePasswordReset = (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-      setError("Lösenorden matchar inte.");
+      setError("Lösenorden matchar inte."); // Den gör en kontroll mot databasen om lösenordet för den inmatade email finns eller matchar med de som finns i databasen
       setSuccess("");
       return;
     }
     // Simulera API-anrop för att uppdatera lösenordet,,,, här ska den länkas till backends api
     fetch("/api/update-password", {
+      // api länk för uppdatering av lösenord
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +82,7 @@ function LoginPage() {
             {success && (
               <div className="alert alert-success" role="alert">
                 {success}
-              </div>
+              </div> //Meddelande som ska dyka vid en lyckad inloggning
             )}
             <form
               onSubmit={isResettingPassword ? handlePasswordReset : handleLogin}
@@ -112,7 +113,7 @@ function LoginPage() {
                   required={!isResettingPassword}
                 />
               </div>
-              {isResettingPassword && (   //funktion för att bli derigeras till glömtlösen sida för att ändra lösenord
+              {isResettingPassword && ( //funktion för att bli derigeras till glömtlösen sida för att ändra lösenord
                 <div className="mb-3">
                   <label htmlFor="confirmPassword" className="form-label">
                     Bekräfta lösenord
