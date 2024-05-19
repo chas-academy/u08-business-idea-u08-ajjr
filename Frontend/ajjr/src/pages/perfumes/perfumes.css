@@ -72,11 +72,10 @@
 
 .perfumes-page {
     background-color: #f0f0f0;
-    padding: 20px 0;
 }
 
 .filter-section {
-    background-color: #ffffff;
+    background-color: #d9d9d9;
     display: flex;
     justify-content: center;
     gap: 10px;
@@ -84,6 +83,7 @@
 }
 
 .filter-btn {
+    color: black;
     background-color: transparent;
     border: none;
     cursor: pointer;
