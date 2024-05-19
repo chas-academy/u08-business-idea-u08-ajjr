@@ -58,7 +58,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className=" loginform  container mt-5">
       <div className="row justify-content-center">
         <div className="loginform col-md-6">
           <div className="card shadow-lg p-4">
@@ -78,7 +78,7 @@ function LoginPage() {
             <form
               onSubmit={isResettingPassword ? handlePasswordReset : handleLogin}
             >
-              <div className="mb-3">
+              <div className=" andralosen mb-3">
                 <label htmlFor="email" className="form-label">
                   E-post
                 </label>
