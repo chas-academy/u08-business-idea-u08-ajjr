@@ -63,14 +63,36 @@ function LoginPage() {
       }
     })
     .catch(() => {
-        setError('Ett fel inträffade vid anslutning till servern.'); //felmeddelande som ska dyka upp 
+      setError('Ett fel inträffade vid anslutning till servern.'); //felmeddelande som ska dyka upp 
     });
   };
 
  
   return (
     <div className="container mt-5">
-      
+        <div className="row justify-content-center">
+        <div className="loginform col-md-6">
+          <div className="card shadow-lg p-4">
+            <h2 className="mb-3">{isResettingPassword ? 'Återställ lösenord' : 'Logga in'}</h2>
+            {error && <div className="alert alert-danger" role="alert">{error}</div>}
+            {success && <div className="alert alert-success" role="alert">{success}</div>}
+            <form onSubmit={isResettingPassword ? handlePasswordReset : handleLogin}>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">E-post</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+             
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
