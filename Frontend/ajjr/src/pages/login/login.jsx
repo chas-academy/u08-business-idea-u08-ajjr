@@ -99,7 +99,31 @@ function LoginPage() {
                   required={!isResettingPassword}
                 />
               </div>
-            
+              {isResettingPassword && (
+                <div className="mb-3">
+                  <label htmlFor="confirmPassword" className="form-label">Bekräfta lösenord</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              )}
+              <button type="submit" className="btn btn-primary w-100 mb-2">
+                {isResettingPassword ? 'Ändra lösenord' : 'Logga in'}
+              </button>
+              {!isResettingPassword ? (
+                <button type="button" className="btn btn-link w-100" onClick={() => setIsResettingPassword(true)}>
+                  Glömt lösenord?
+                </button>
+              ) : (
+                <button type="button" className="btn btn-link w-100" onClick={() => setIsResettingPassword(false)}>
+                  Gå tillbaka
+                </button>
+              )}
             </form>
           </div>
         </div>
