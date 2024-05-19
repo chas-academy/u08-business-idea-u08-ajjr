@@ -30,8 +30,10 @@ const FAQ = () => {
 };
 
 const faqData = [
-  { question: 'Har ni en butik?', answer: 'Ja, Chas academy lokal 7' },
-  { question: 'Vad är Musk Oud?', answer: 'Parfym från Mekka' },
+  { question: 'Har ni en butik?', answer: 'Vi har för närvarande ingen fysisk butik.' },
+  { question: 'Vad är Musk Oud?', answer: 'Parfym från Mekka.' },
+  { question: 'Hur applicerar jag parfymolja?', answer: 'Applicera några droppar på handlederna och bakom öronen.' },
+  { question: 'Hur returnerar jag?', answer: 'Kontakta oss inom 14 dagar för en retur.' },
 ];
 
 export default FAQ;
