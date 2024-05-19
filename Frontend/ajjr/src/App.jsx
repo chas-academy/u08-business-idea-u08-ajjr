@@ -6,7 +6,7 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import FAQ from "./pages/faq/faq";
+import FAQ from "./pages/faq/Faq";
 import "./App.css";
 import Footer from "./components/footer/footer";
 import Home from "./pages/home/home";
@@ -18,7 +18,6 @@ const App = () => {
   return (
     <>
       <Navigation></Navigation>
-      <Home />
       <Outlet></Outlet>
       <Footer></Footer>
     </>

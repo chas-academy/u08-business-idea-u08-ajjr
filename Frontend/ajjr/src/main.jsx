@@ -8,9 +8,10 @@ import './index.css'
 import { BrowserRouter, RouterProvider, createBrowserRouter, Route, Link } from 'react-router-dom';
 import AboutUs from './pages/aboutus/aboutus.jsx';
 import Perfumes from './pages/perfumes/perfumes.jsx';
-import FAQ from './pages/faq/faq.jsx';
+import FAQ from './pages/faq/Faq.jsx';
 import Login from './pages/login/login.jsx';
 import RegisterPage from './pages/register/register.jsx';
+import Home from './pages/home/home.jsx';
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App></App>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>
+      },
       {
         path: "produkter",
         element: <Perfumes></Perfumes>,
@@ -47,12 +52,12 @@ const router = createBrowserRouter([
       {
         path: "RegisterPage",
         element: <RegisterPage></RegisterPage>
-      }
-
+      },
     ]
-
-
   },
+
+
+
 
 
 ])
