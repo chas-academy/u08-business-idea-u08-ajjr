@@ -1,12 +1,3 @@
-// import React from 'react'
-
-// function Login() {
-//     return (
-//         <div>Login</div>
-//     )
-// }
-
-// export default Login
 import React, { useState } from "react";
 import "./login.css";
 
