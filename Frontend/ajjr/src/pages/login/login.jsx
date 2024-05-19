@@ -44,7 +44,7 @@ function LoginPage() {
       setSuccess('');
       return;
     }
-    // Simulera API-anrop för att uppdatera lösenordet
+    // Simulera API-anrop för att uppdatera lösenordet,,,, här ska den länkas till backends api 
     fetch('/api/update-password', {
       method: 'POST',
       headers: {
@@ -57,13 +57,13 @@ function LoginPage() {
       setError('');
       if (data.success) {
         setSuccess('Ditt lösenord har ändrats.');
-        setIsResettingPassword(false);  // Återgå till inloggningssidan
+        setIsResettingPassword(false);  // Återgår till inloggningssidan
       } else {
         setError('Kunde inte ändra lösenordet.');
       }
     })
     .catch(() => {
-      setError('Ett fel inträffade vid anslutning till servern.');
+      setError('Ett fel inträffade vid anslutning till servern.'); //felmeddelande som ska dyka upp 
     });
   };
 
