@@ -44,7 +44,7 @@ function LoginPage() {
       setSuccess('');
       return;
     }
-    // Simulera API-anrop för att uppdatera lösenordet,,,, här ska den länkas till backends api 
+   // Simulera API-anrop för att uppdatera lösenordet,,,, här ska den länkas till backends api 
     fetch('/api/update-password', {
       method: 'POST',
       headers: {
@@ -63,11 +63,16 @@ function LoginPage() {
       }
     })
     .catch(() => {
-      setError('Ett fel inträffade vid anslutning till servern.'); //felmeddelande som ska dyka upp 
+        setError('Ett fel inträffade vid anslutning till servern.'); //felmeddelande som ska dyka upp 
     });
   };
 
  
+  return (
+    <div className="container mt-5">
+      
+    </div>
+  );
 }
 
 export default LoginPage;
