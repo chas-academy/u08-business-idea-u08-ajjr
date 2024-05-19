@@ -6,7 +6,7 @@ import {
   Link,
   Outlet,
 } from "react-router-dom";
-import FAQ from "./pages/faq/Faq";
+import FAQ from "./pages/faq/faq";
 import "./App.css";
 import "./index.css"
 import Footer from "./components/footer/footer";
