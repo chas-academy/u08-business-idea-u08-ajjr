@@ -14,16 +14,44 @@
 
 
 
+
+
+/* .backgroundstyle{
+    background: url("/Frontend/ajjr/src/images/productajjr.jpg");
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }; */
+
+
+.backgroundstyle {
+    
+
+    /* background-image: url(".././../images/productajjr.jpg"); */
+    background: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg')no-repeat center center fixed;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 @media (max-width: 576px) {
     .card {
-      padding: 20px;  /* Minska inpadding för små skärmar */
+        padding: 20px;
+        /* Minska inpadding för små skärmar */
     }
+
     .formulor {
         width: 100%;
 
     }
-  }
-  
-  .regbtn:hover {
-      background-color: rgb(106, 100, 100);
-  }
+}
+
+.regbtn:hover {
+    background-color: rgb(106, 100, 100);
+}
