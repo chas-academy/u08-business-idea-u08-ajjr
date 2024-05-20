@@ -15,7 +15,7 @@ function LoginPage() {
     event.preventDefault();
     const user = users.find((user) => user.email === email);
     if (!user) {
-      setError("Inget konto finns med den angivna e-postadressen."); //Kontroll görs mot databasen om det finns ett konto med de matade emailkonto
+      setError("Inget konto finns med den angivna e-postadressen.");
       setSuccess("");
     } else if (user.password !== password) {
       setError("Fel lösenord angivet.");
@@ -29,13 +29,12 @@ function LoginPage() {
   const handlePasswordReset = (event) => {
     event.preventDefault();
     if (password !== confirmPassword) {
-      setError("Lösenorden matchar inte."); // Den gör en kontroll mot databasen om lösenordet för den inmatade email finns eller matchar med de som finns i databasen
+      setError("Lösenorden matchar inte.");
       setSuccess("");
       return;
     }
-    // Simulera API-anrop för att uppdatera lösenordet,,,, här ska den länkas till backends api
+
     fetch("/api/update-password", {
-      // api länk för uppdatering av lösenord
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,38 +46,30 @@ function LoginPage() {
         setError("");
         if (data.success) {
           setSuccess("Ditt lösenord har ändrats.");
-          setIsResettingPassword(false); // Återgår till inloggningssidan
+          setIsResettingPassword(false);
         } else {
           setError("Kunde inte ändra lösenordet.");
         }
       })
       .catch(() => {
-        setError("Ett fel inträffade vid anslutning till servern."); //felmeddelande som ska dyka upp
+        setError("Ett fel inträffade vid anslutning till servern.");
       });
   };
 
   return (
-    <div className=" loginform  container mt-5">
-      <div className="row justify-content-center">
-        <div className="loginform col-md-6">
-          <div className="card shadow-lg p-4">
-            <h2 className="mb-3">
+    <div className="container mt-5 d-flex justify-content-center align-items-center ">
+      <div className="login-form row justify-content-center w-100">
+        <div className="fullformlogin ">
+          <div className="card shadow-lg p-5 border-0">
+            <h2 className="text-center mb-4">
               {isResettingPassword ? "Återställ lösenord" : "Logga in"}
             </h2>
-            {error && (
-              <div className="alert alert-danger" role="alert">
-                {error}
-              </div>
-            )}
-            {success && (
-              <div className="alert alert-success" role="alert">
-                {success}
-              </div> //Meddelande som ska dyka vid en lyckad inloggning
-            )}
+            {error && <div className="alert alert-danger">{error}</div>}
+            {success && <div className="alert alert-success">{success}</div>}
             <form
               onSubmit={isResettingPassword ? handlePasswordReset : handleLogin}
             >
-              <div className=" andralosen mb-3">
+              <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   E-post
                 </label>
@@ -104,7 +95,8 @@ function LoginPage() {
                   required={!isResettingPassword}
                 />
               </div>
-              {isResettingPassword && ( //funktion för att bli derigeras till glömtlösen sida för att ändra lösenord
+
+              {isResettingPassword && (
                 <div className="mb-3">
                   <label htmlFor="confirmPassword" className="form-label">
                     Bekräfta lösenord
@@ -119,26 +111,29 @@ function LoginPage() {
                   />
                 </div>
               )}
-              <button type="submit" className="btn btn-primary w-100 mb-2">
-                {isResettingPassword ? "Ändra lösenord" : "Logga in"}
-              </button>
-              {!isResettingPassword ? (
-                <button
-                  type="button"
-                  className="btn btn-link w-100"
-                  onClick={() => setIsResettingPassword(true)}
-                >
-                  Glömt lösenord?
+
+              <div className="d-grid gap-2">
+                <button type="submit" className="btn btn-primary">
+                  {isResettingPassword ? "Ändra lösenord" : "Logga in"}
                 </button>
-              ) : (
-                <button
-                  type="button"
-                  className="btn btn-link w-100"
-                  onClick={() => setIsResettingPassword(false)}
-                >
-                  Gå tillbaka
-                </button> //går tillbaka till loginsidan
-              )}
+                {!isResettingPassword ? (
+                  <button
+                    type="button"
+                    className="btn btn-link"
+                    onClick={() => setIsResettingPassword(true)}
+                  >
+                    Glömt lösenord?
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="btn btn-link"
+                    onClick={() => setIsResettingPassword(false)}
+                  >
+                    Gå tillbaka
+                  </button>
+                )}
+              </div>
             </form>
           </div>
         </div>
