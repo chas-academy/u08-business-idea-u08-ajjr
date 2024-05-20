@@ -2,10 +2,17 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config(); // Importera och konfigurera dotenv
 
+// Skapa en instans av express, middleware för att hantera JSON-data
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const PORT = process.env.PORT || 3000;
 
-app.get('/ajjr', (req, res) => {
+// routes
+
+// Enkel endpoint för att testa att servern är igång
+app.get('/', (req, res) => {
   res.send("Hello from the Server.js");
 });
 
