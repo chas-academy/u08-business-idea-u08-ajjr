@@ -120,6 +120,7 @@ const AboutUs = () => {
                 <li>E-post: info@ajjr.se</li>
               </ul>
             </div>
+
           </div>
         </div>
       </div>

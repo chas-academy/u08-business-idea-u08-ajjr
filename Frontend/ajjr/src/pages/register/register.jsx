@@ -67,18 +67,18 @@ function RegisterPage() {
     }
   };
 
-  const backgroundStyle = {
-    background:
-      "url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg') no-repeat center center fixed",
-    backgroundSize: "cover",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
+  // const backgroundStyle = {
+  //   background:
+  //     "url('../images/productajjr.jpg') no-repeat center center fixed",
+  //   backgroundSize: "cover",
+  //   height: "100vh",
+  //   display: "flex",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  // };
 
   return (
-    <div style={backgroundStyle}>
+    <div className="backgroundstyle">
       <Container className="formulor d-flex justify-content-center align-items-center vh-100">
         <Card
           className="w-100"
