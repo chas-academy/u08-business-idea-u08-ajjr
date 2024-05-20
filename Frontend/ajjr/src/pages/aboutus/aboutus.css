@@ -1,0 +1,5 @@
+ul {
+    list-style-type: none; /* Ta bort punktmarkeringarna */
+    padding: 0; /* Ta bort standardmarginalen */
+  }
+  
