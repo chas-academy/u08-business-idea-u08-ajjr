@@ -8,8 +8,8 @@ function RegisterPage() {
     email: "",
     password: "",
     confirmPassword: "",
-    firstName: "", 
-    lastName: "", 
+    firstName: "",
+    lastName: "",
   });
 
   const handleChange = (e) => {
@@ -66,16 +66,6 @@ function RegisterPage() {
       alert("Registrering misslyckades. Försök igen senare.");
     }
   };
-
-  // const backgroundStyle = {
-  //   background:
-  //     "url('../images/productajjr.jpg') no-repeat center center fixed",
-  //   backgroundSize: "cover",
-  //   height: "100vh",
-  //   display: "flex",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  // };
 
   return (
     <div className="backgroundstyle">
