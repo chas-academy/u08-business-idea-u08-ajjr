@@ -6,7 +6,7 @@ import { AiFillTikTok } from "react-icons/ai";
 import "./footer.css";
 
 const linksData = {
-  Omoss: [
+  "Om oss": [
     { label: "Om Ajjr", link: "/om-ajjr" },
     { label: "Välgörenhet", link: "/valgorenhet" },
     { label: "Sammarbeten", link: "/sammarbeten" },
@@ -17,7 +17,7 @@ const linksData = {
     { label: "Retur & Byten", link: "/retur-byten" },
     { label: "FAQ - vanliga frågor och svar", link: "/faq" },
   ],
-  Dofter: [
+  Produkter: [
     { label: "Herr", link: "/herr" },
     { label: "Dam", link: "/dam" },
     { label: "Unisex", link: "/unisex" },
@@ -43,7 +43,9 @@ const socialLinks = [
 
 const Footer = () => {
   return (
+
     <div className="container-fluid">
+
       <Row>
         {Object.entries(linksData).map(([title, links], index) => (
           <Col
@@ -52,6 +54,7 @@ const Footer = () => {
             lg={3}
             key={index}
             style={{ marginBottom: "20px" }}
+            className="mt-4"
           >
             <h5
               style={{
@@ -90,6 +93,7 @@ const Footer = () => {
             flexDirection: "column",
             justifyContent: "center",
           }}
+          className="mb-4"
         >
           <h6
             style={{

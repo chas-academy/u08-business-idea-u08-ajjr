@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App.jsx'
 import Navigation from './components/navbar/navbar.jsx'; // Se till att stigen är korrekt
 import './index.css'
-import { BrowserRouter, RouterProvider, createBrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, RouterProvider, createBrowserRouter, Route, Link, Outlet } from 'react-router-dom';
 import AboutUs from './pages/aboutus/aboutus.jsx';
 import Perfumes from './pages/perfumes/perfumes.jsx';
 import FAQ from './pages/faq/faq.jsx';
@@ -25,12 +25,32 @@ const router = createBrowserRouter([
       },
       {
         path: "produkter",
-        element: <Perfumes></Perfumes>,
+        element: <Outlet />,
         children: [
           {
+            path: "",
+            element: <Perfumes />
+          },
+          {
             path: "herr",
-            element: <Perfumes></Perfumes>
-          }
+            element: <AboutUs />
+          },
+          {
+            path: "dam",
+            element: <AboutUs />
+          },
+          {
+            path: "unisex",
+            element: <AboutUs />
+          },
+          {
+            path: "musk",
+            element: <AboutUs />
+          },
+          {
+            path: "oud",
+            element: <AboutUs />
+          },
         ]
       },
       {
