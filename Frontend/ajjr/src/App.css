@@ -30,6 +30,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -59,7 +60,7 @@ body {
 
 .faq-wrapper {
   width: 100%;
-  max-width: 800px; 
+  max-width: 800px;
   background-color: #f6f6f6;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -75,12 +76,12 @@ body {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
 }
 
 .faq-question {
   font-weight: bold;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 .faq-answer {
@@ -89,6 +90,6 @@ body {
 
 @media (max-width: 767px) {
   .faq-wrapper {
-    width: 90%; 
+    width: 90%;
   }
 }
