@@ -66,7 +66,7 @@ const AboutUs = () => {
             Har du frågor? Ställ din fråga genom att kontakta oss på följande eller via sociala medier:
             </p>
           <ul>
-            <li>Telefon: 07005566448</li>
+            <li>Telefon: 070 056 64 48</li>
             <li>E-post: info@ajjr.se</li>
           </ul>  
           </div>
