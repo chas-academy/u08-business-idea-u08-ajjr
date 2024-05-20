@@ -5,10 +5,18 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "../navbar/navbar.css"; // Importerar CSS från samma mapp
 import { useState } from "react";
 import logoImg from "../../images/ajjrlogo.png"; // Gå upp två nivåer, sedan in i images-mappen
-import { Link, NavLink, Route, Routes, Outlet, BrowserRouter } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Route,
+  Routes,
+  Outlet,
+  BrowserRouter,
+} from "react-router-dom";
 
 function Navigation() {
-  const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] = useState(false);
+  const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] =
+    useState(false);
   const [isNavDropdownOpenAbout, setIsNavDropdownOpenAbout] = useState(false);
 
   return (
@@ -30,13 +38,25 @@ function Navigation() {
             onMouseEnter={() => setIsNavDropdownOpenProduct(true)}
             onMouseLeave={() => setIsNavDropdownOpenProduct(false)}
           >
-            <NavDropdown.Item as={Link} to="produkter">Produkter</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="produkter">
+              Produkter
+            </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="herr">Herr</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="dam">Dam</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="unisex">Unisex</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="musk">Musk</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="oud">Oud</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="herr">
+              Herr
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="dam">
+              Dam
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="unisex">
+              Unisex
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="musk">
+              Musk
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="oud">
+              Oud
+            </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="testers">
               Testers
@@ -50,8 +70,12 @@ function Navigation() {
             onMouseEnter={() => setIsNavDropdownOpenAbout(true)}
             onMouseLeave={() => setIsNavDropdownOpenAbout(false)}
           >
-            <NavDropdown.Item as={Link} to="omajjr">Om Ajjr</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="omajjr">Vår vision</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="omajjr">
+              Om Ajjr
+            </NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="omajjr">
+              Vår vision
+            </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="omajjr">
               Sammarbeten
