@@ -3,6 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookSquare } from "react-icons/fa";
 import { AiFillTikTok } from "react-icons/ai";
+import "./footer.css";
 
 const linksData = {
   "Om oss": [
@@ -42,10 +43,9 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <div
-      className="container-fluid"
-      style={{ backgroundColor: "#f8f9fa", }}
-    >
+
+    <div className="container-fluid">
+
       <Row>
         {Object.entries(linksData).map(([title, links], index) => (
           <Col
