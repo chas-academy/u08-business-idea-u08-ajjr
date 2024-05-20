@@ -10,17 +10,22 @@ import { Link, NavLink, Route, Routes, Outlet, BrowserRouter } from "react-route
 function Navigation() {
   const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] = useState(false);
   const [isNavDropdownOpenAbout, setIsNavDropdownOpenAbout] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  function closeNav() {
+    setIsExpanded(false)
+  }
 
   return (
-    <Navbar expand="lg" className="navbar-custom px-5">
+    <Navbar expand="lg" expanded={isExpanded} className="navbar-custom px-5" sticky="top">
       <Navbar.Brand as={Link} to="/">
         <img src={logoImg} alt="Logotyp" className="logoimg " />{" "}
         {/* Använd den importerade bilden här */}
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setIsExpanded(isExpanded ? false : true)} />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto fs-3">
-          <Nav.Link as={Link} to="/" className="nav-link-custom">
+          <Nav.Link as={Link} onClick={closeNav} to="/" className="nav-link-custom">
             Hem
           </Nav.Link>
           <NavDropdown
@@ -30,15 +35,15 @@ function Navigation() {
             onMouseEnter={() => setIsNavDropdownOpenProduct(true)}
             onMouseLeave={() => setIsNavDropdownOpenProduct(false)}
           >
-            <NavDropdown.Item as={Link} to="produkter">Produkter</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter">Produkter</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="herr">Herr</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="dam">Dam</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="unisex">Unisex</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="musk">Musk</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="oud">Oud</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/herr">Herr</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/dam">Dam</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/unisex">Unisex</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/musk">Musk</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/oud">Oud</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="testers">
+            <NavDropdown.Item as={Link} onClick={closeNav} to="testers">
               Testers
             </NavDropdown.Item>
           </NavDropdown>
@@ -50,20 +55,20 @@ function Navigation() {
             onMouseEnter={() => setIsNavDropdownOpenAbout(true)}
             onMouseLeave={() => setIsNavDropdownOpenAbout(false)}
           >
-            <NavDropdown.Item as={Link} to="omajjr">Om Ajjr</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="omajjr">Vår vision</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="omajjr">Om Ajjr</NavDropdown.Item>
+            <NavDropdown.Item as={Link} onClick={closeNav} to="omajjr">Vår vision</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="omajjr">
+            <NavDropdown.Item as={Link} onClick={closeNav} to="omajjr">
               Sammarbeten
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="omajjr">
+            <NavDropdown.Item as={Link} onClick={closeNav} to="omajjr">
               Kontakta oss
             </NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link as={Link} to="loggain" className="nav-link-custom">
+          <Nav.Link as={Link} onClick={closeNav} to="loggain" className="nav-link-custom">
             Logga in
           </Nav.Link>
-          <Nav.Link as={Link} to="RegisterPage" className="nav-link-custom">
+          <Nav.Link as={Link} onClick={closeNav} to="RegisterPage" className="nav-link-custom">
             Registrera dig
           </Nav.Link>
         </Nav>
