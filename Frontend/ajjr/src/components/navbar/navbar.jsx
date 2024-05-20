@@ -122,6 +122,9 @@ function Navigation() {
           >
             Registrera dig
           </Nav.Link>
+          <Nav.Link as={Link} onClick={closeNav} to="kassa">
+            Cart
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
