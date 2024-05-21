@@ -2,9 +2,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "../navbar/navbar.css"; // Importerar CSS från samma mapp
+import "../navbar/navbar.css";
 import { useState } from "react";
-import logoImg from "../../images/ajjrlogo.png"; // Gå upp två nivåer, sedan in i images-mappen
+import logoImg from "../../images/ajjrlogo.png";
 import {
   Link,
   NavLink,
@@ -33,7 +33,6 @@ function Navigation() {
     >
       <Navbar.Brand as={Link} to="/">
         <img src={logoImg} alt="Logotyp" className="logoimg " />{" "}
-        {/* Använd den importerade bilden här */}
       </Navbar.Brand>
       <Navbar.Toggle
         aria-controls="basic-navbar-nav"
@@ -51,7 +50,6 @@ function Navigation() {
           </Nav.Link>
           <NavDropdown
             title="Produkter"
-            /* id="basic-nav-dropdown" */
             show={isNavDropdownOpenProduct}
             onMouseEnter={() => setIsNavDropdownOpenProduct(true)}
             onMouseLeave={() => setIsNavDropdownOpenProduct(false)}
@@ -87,22 +85,63 @@ function Navigation() {
 
           <NavDropdown
             title="Om oss"
-            /* id="basic-nav-dropdown" */
             show={isNavDropdownOpenAbout}
             onMouseEnter={() => setIsNavDropdownOpenAbout(true)}
             onMouseLeave={() => setIsNavDropdownOpenAbout(false)}
           >
-            <NavDropdown.Item as={Link} to="omajjr">
+            <NavDropdown.Item
+              as={Link}
+              to="aboutus#omajjr"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
               Om Ajjr
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="omajjr">
-              Vår vision
+            <NavDropdown.Item
+              as={Link}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              to="aboutus#vision"
+            >
+              Vår Vision
             </NavDropdown.Item>
+
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} onClick={closeNav} to="omajjr">
+
+            <NavDropdown.Item
+              as={Link}
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              to="aboutus#valgorenhet"
+            >
+              Välgörenhet
+            </NavDropdown.Item>
+
+            <NavDropdown.Item
+              as={Link}
+              spy={true}
+              smooth={true}
+              offset={-220}
+              duration={500}
+              to="aboutus#sammarbeten"
+            >
               Sammarbeten
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} onClick={closeNav} to="omajjr">
+
+            <NavDropdown.Item
+              as={Link}
+              spy={true}
+              smooth={true}
+              offset={-220}
+              duration={500}
+              to="aboutus#kontakt"
+            >
               Kontakta oss
             </NavDropdown.Item>
           </NavDropdown>
@@ -110,6 +149,7 @@ function Navigation() {
             as={Link}
             onClick={closeNav}
             to="loggain"
+            a
             className="nav-link-custom"
           >
             Logga in

@@ -23,45 +23,20 @@ import Checkout from "./pages/checkout/checkout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <App />,
     children: [
-      {
-        path: "/",
-        element: <Home></Home>,
-      },
+      { path: "/", element: <Home /> },
+      { path: "aboutus", element: <AboutUs /> },
       {
         path: "produkter",
-        element: <Outlet />,
+        element: <Perfumes />,
         children: [
-          {
-            path: "",
-            element: <Perfumes />,
-          },
-          {
-            path: "herr",
-            element: <AboutUs />,
-          },
-          {
-            path: "dam",
-            element: <AboutUs />,
-          },
-          {
-            path: "unisex",
-            element: <AboutUs />,
-          },
-          {
-            path: "musk",
-            element: <AboutUs />,
-          },
-          {
-            path: "oud",
-            element: <AboutUs />,
-          },
+          { path: "herr", element: <Perfumes /> },
+          { path: "dam", element: <Perfumes /> },
+          { path: "unisex", element: <Perfumes /> },
+          { path: "musk", element: <Perfumes /> },
+          { path: "oud", element: <Perfumes /> },
         ],
-      },
-      {
-        path: "omajjr",
-        element: <AboutUs></AboutUs>,
       },
       {
         path: "kontakt",

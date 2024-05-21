@@ -44,3 +44,7 @@
 .dropdown-menu {
     font-size: 20px;
 }
+
+.dropdown-menu.show {
+    margin-top: -10px;
+}
