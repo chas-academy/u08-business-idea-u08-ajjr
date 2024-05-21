@@ -54,7 +54,7 @@ function Checkout() {
 
   return (
     <Container className="checkout">
-      <Row>
+      <div className="checkoutrow">
         {isEmptyCart ? (
           <div className="col-12">
             <h1>Din varukorg</h1>
@@ -95,12 +95,12 @@ function Checkout() {
                   </div>
                 ))}
               </div>
-              <Row>
+            
                 <div className="free-delivery">
                   <h4>Fri frakt</h4>
                   <h4>Postnord</h4>
                 </div>
-              </Row>
+       
 
               <div className="row">
                 <div className="col-12">
@@ -208,7 +208,7 @@ function Checkout() {
             </div>
           </>
         )}
-      </Row>
+      </div>
     </Container>
   );
 }

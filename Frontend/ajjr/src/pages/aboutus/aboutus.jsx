@@ -24,7 +24,7 @@ const AboutUs = () => {
    
       <Element>
         <Container className="vision my-4" id="omajjr">
-          <Row>
+          <Row className="row-aboutus ">
             <Col md={4}>
               <img
                 src="src/images/descriptionimg.png"
@@ -50,7 +50,7 @@ const AboutUs = () => {
 
       <Element>
         <Container className="vårvision my-4" id="vision">
-          <Row>
+          <Row className="row-aboutus ">
             <Col md={4} className="order-md-2">
               <img
                 src="src/images/purseimg.JPG"
@@ -76,7 +76,7 @@ const AboutUs = () => {
 
       <Element>
         <Container className="välgörenhet my-4" id="valgorenhet">
-          <Row>
+          <Row className="row-aboutus ">
             <Col md={4}>
               <img
                 src="src/images/produktpageimg.JPG"
@@ -101,7 +101,7 @@ const AboutUs = () => {
 
       <Element>
         <Container className="sammarbeten my-4" id="sammarbeten">
-          <Row>
+          <Row className="row-aboutus ">
             <Col md={8}>
               <h3>Sammarbeten</h3>
               <p>
@@ -126,7 +126,7 @@ const AboutUs = () => {
 
       <Element>
         <Container className="contact my-4" id="kontakt">
-          <Row>
+          <Row className="row-aboutus">
             <Col md={12}>
               <h3>Kontakta oss:</h3>
               <p>

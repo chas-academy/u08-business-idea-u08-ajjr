@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookSquare } from "react-icons/fa";
 import { AiFillTikTok } from "react-icons/ai";
@@ -43,10 +43,8 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-
     <div className="container-fluid">
-
-      <Row>
+      <div className="footerrow">
         {Object.entries(linksData).map(([title, links], index) => (
           <Col
             xs={12}
@@ -133,8 +131,8 @@ const Footer = () => {
             ))}
           </div>
         </Col>
-      </Row>
-    </div>
+      </div>
+   </div>
   );
 };
 
