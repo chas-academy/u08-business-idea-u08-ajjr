@@ -94,7 +94,7 @@ function Navigation() {
               to="aboutus#omajjr"
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={-220}
               duration={500}
             >
               Om Ajjr
@@ -103,7 +103,7 @@ function Navigation() {
               as={Link}
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={-220}
               duration={500}
               to="aboutus#vision"
             >
@@ -116,7 +116,7 @@ function Navigation() {
               as={Link}
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={-220}
               duration={500}
               to="aboutus#valgorenhet"
             >
