@@ -49,4 +49,17 @@ ul {
   .container .col-md-8 {
     max-width: 100%;
   }
+
+  .row-aboutus .col-md-8,
+  .row-aboutus .col-md-4 {
+    order: 2;
+  }
+
+  .row-aboutus .col-md-4 {
+    order: 1;
+  }
+
+  .aboutusimg {
+    margin-bottom: 1rem;
+  }
 }

@@ -69,11 +69,8 @@ function RegisterPage() {
 
   return (
     <div className="backgroundstyle">
-      <Container className="formulor d-flex justify-content-center align-items-center vh-100">
-        <Card
-          className="w-100"
-          style={{ maxWidth: "400px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
-        >
+      <Container className="formulor ">
+        <Card className="registercard w-100">
           <Card.Body>
             <Card.Title className="text-center mb-4">Registrera dig</Card.Title>
             <Form onSubmit={handleSubmit}>

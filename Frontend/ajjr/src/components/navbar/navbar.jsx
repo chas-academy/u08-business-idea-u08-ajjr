@@ -94,7 +94,7 @@ function Navigation() {
               to="aboutus#omajjr"
               spy={true}
               smooth={true}
-              offset={-220}
+              offset={-420}
               duration={500}
             >
               Om Ajjr
@@ -103,7 +103,7 @@ function Navigation() {
               as={Link}
               spy={true}
               smooth={true}
-              offset={-220}
+              offset={-420}
               duration={500}
               to="aboutus#vision"
             >

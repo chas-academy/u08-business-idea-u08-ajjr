@@ -7,10 +7,10 @@ import "./footer.css";
 
 const linksData = {
   "Om oss": [
-    { label: "Om Ajjr", link: "/om-ajjr" },
-    { label: "Välgörenhet", link: "/valgorenhet" },
-    { label: "Sammarbeten", link: "/sammarbeten" },
-    { label: "Kontakta oss", link: "/kontakta-oss" },
+    { label: "Om Ajjr", link: "aboutus#omajjr" },
+    { label: "Välgörenhet", link: "aboutus#valgorenhet" },
+    { label: "Sammarbeten", link: "aboutus#sammarbeten" },
+    { label: "Kontakta oss", link: "aboutus#kontakt" },
   ],
   Kundservice: [
     { label: "Leveransinformation", link: "/leveransinformation" },
