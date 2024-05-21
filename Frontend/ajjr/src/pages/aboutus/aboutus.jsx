@@ -21,10 +21,7 @@ const AboutUs = () => {
 
   return (
     <>
-      <Container className="text-center my-4">
-        <h1>Om Ajjr</h1>
-      </Container>
-
+   
       <Element>
         <Container className="vision my-4" id="omajjr">
           <Row>
@@ -36,7 +33,8 @@ const AboutUs = () => {
               />
             </Col>
             <Col md={8}>
-              <h3>Om Ajjr</h3>
+             
+              <h1>Om Ajjr</h1>
               <p className="visiontext">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
                 similique ea harum. Porro harum cum nam expedita culpa, ipsum at
