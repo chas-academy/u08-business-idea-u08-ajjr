@@ -1,0 +1,33 @@
+.step-1 {
+  background-color: #ebebeb;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 6px;
+}
+
+.step-1-header {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.step-2-form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+.free-delivery {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.checkout {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}

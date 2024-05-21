@@ -54,7 +54,7 @@ function Navigation() {
             onMouseEnter={() => setIsNavDropdownOpenProduct(true)}
             onMouseLeave={() => setIsNavDropdownOpenProduct(false)}
           >
-            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter">
+            <NavDropdown.Item as={Link} to="produkter">
               Produkter
             </NavDropdown.Item>
             <NavDropdown.Divider />
@@ -161,6 +161,9 @@ function Navigation() {
             className="nav-link-custom"
           >
             Registrera dig
+          </Nav.Link>
+          <Nav.Link as={Link} onClick={closeNav} to="kassa">
+            Cart
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
