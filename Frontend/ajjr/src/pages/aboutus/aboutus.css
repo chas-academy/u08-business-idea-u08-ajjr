@@ -19,14 +19,13 @@ ul {
 .visiontext,
 .history p,
 .välgörenhet p,
-.contact
-.sammarbeten p {
+.contact .sammarbeten p {
   font-size: 16px;
   line-height: 1.6;
 }
 
 /* Bildstorleksjusteringar */
-img.img-fluid {
+.aboutusimg {
   width: 100%;
 
   border-radius: 8px;
@@ -41,8 +40,7 @@ img.img-fluid {
   .visiontext,
   .history p,
   .valgorenhet p,
-  .contact
-  .sammarbeten p {
+  .contact .sammarbeten p {
     font-size: 14px;
     padding: 0;
     margin: 0;
