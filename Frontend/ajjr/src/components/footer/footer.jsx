@@ -13,8 +13,8 @@ const linksData = {
     { label: "Kontakta oss", link: "aboutus#kontakt" },
   ],
   Kundservice: [
-    { label: "Leveransinformation", link: "/leveransinformation" },
-    { label: "Retur & Byten", link: "/retur-byten" },
+    { label: "Leveransinformation", link: "customerservice" },
+    { label: "Retur & Byten", link: "customerservice" },
     { label: "FAQ - vanliga frågor och svar", link: "/faq" },
   ],
   Produkter: [
