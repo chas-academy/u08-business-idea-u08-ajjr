@@ -39,16 +39,16 @@ function Home() {
   const carouselRef3 = useRef(null);
 
   const products = [
-    { id: 1, name: "Produkt 1", price: "100 kr", image: product1 },
-    { id: 2, name: "Produkt 2", price: "200 kr", image: product2 },
-    { id: 3, name: "Produkt 3", price: "300 kr", image: product3 },
-    { id: 4, name: "Produkt 4", price: "400 kr", image: product4 },
-    { id: 5, name: "Produkt 5", price: "500 kr", image: product5 },
-    { id: 6, name: "Produkt 6", price: "600 kr", image: product6 },
-    { id: 7, name: "Produkt 7", price: "700 kr", image: product7 },
-    { id: 8, name: "Produkt 8", price: "800 kr", image: product8 },
-    { id: 9, name: "Produkt 9", price: "900 kr", image: product9 },
-    { id: 10, name: "Produkt 10", price: "1000 kr", image: product10 },
+    { id: 1, name: "Vitory", price: "120 kr", image: product1 },
+    { id: 2, name: "The Don", price: "120 kr", image: product2 },
+    { id: 3, name: "Empire", price: "120 kr", image: product3 },
+    { id: 4, name: "Vanilla Silk", price: "120 kr", image: product4 },
+    { id: 5, name: "La Coquille", price: "120 kr", image: product5 },
+    { id: 6, name: "Preziosa", price: "120 kr", image: product6 },
+    { id: 7, name: "Doux Reve", price: "120 kr", image: product1 },
+    { id: 8, name: "Sweet Scent", price: "120 kr", image: product2 },
+    { id: 9, name: "Golden Dust", price: "120 kr", image: product3 },
+    { id: 10, name: "Coco Sand", price: "120 kr", image: product4 },
   ];
 
   /* const products = [
