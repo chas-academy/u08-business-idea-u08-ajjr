@@ -78,7 +78,7 @@ function Navigation() {
               Oud
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} onClick={closeNav} to="testers">
+            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/testers">
               Testers
             </NavDropdown.Item>
           </NavDropdown>
