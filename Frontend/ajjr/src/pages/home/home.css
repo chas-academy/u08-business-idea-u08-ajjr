@@ -18,6 +18,7 @@
 .discover {
     position: relative;
     text-align: center;
+
     a {
         text-decoration: inherit;
         color: inherit;
@@ -166,6 +167,15 @@
     scrollbar-width: none;
 }
 
+.carre {
+    max-width: 1500px;
+    margin-right: 115px;
+    margin-left: 115px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -243,6 +253,11 @@
             text-decoration: inherit;
             color: inherit;
         }
+    }
+
+    .carre {
+        margin: 0px;
+
     }
 
     .discover-h2 {

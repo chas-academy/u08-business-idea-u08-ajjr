@@ -108,7 +108,7 @@ function Home() {
 
       <h3 className="text-center my-4">För honom</h3>
 
-      <div className="container my-5 position-relative">
+      <div className="carre my-5 position-relative">
         <button className="carousel-btn left-btn" onClick={scrollLeft1}>
           &#x2C2;
         </button>
@@ -146,7 +146,7 @@ function Home() {
 
       <h3 className="text-center my-4">För henne</h3>
 
-      <div className="container my-5 position-relative">
+      <div className="carre my-5 position-relative">
         <button className="carousel-btn left-btn" onClick={scrollLeft2}>
           &#x2C2;
         </button>
@@ -205,7 +205,7 @@ function Home() {
 
       <h3 className="text-center my-4">Bästsäljare</h3>
 
-      <div className="container my-5 position-relative">
+      <div className="carre my-5 position-relative">
         <button className="carousel-btn left-btn" onClick={scrollLeft3}>
           &#x2C2;
         </button>
