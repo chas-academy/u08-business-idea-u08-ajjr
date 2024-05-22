@@ -19,6 +19,7 @@ import Login from "./pages/login/login.jsx";
 import RegisterPage from "./pages/register/register.jsx";
 import Home from "./pages/home/home.jsx";
 import Checkout from "./pages/checkout/checkout.jsx";
+import CustomerService from "./pages/customerservice/customerservice.jsx";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         path: "kassa",
         element: <Checkout></Checkout>,
+      },
+      {
+        path: "customerservice",
+        element: <CustomerService></CustomerService> ,
       },
     ],
   },
