@@ -113,24 +113,49 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Logga in en användare
+
+
+
+
+// // Logga in en användare
+// router.post("/login", async (req, res) => {
+//   const { email, password } = req.body;
+//   try {
+//     const user = await User.findOne({ email });
+//     if (!user) {
+//       return res.status(400).json({ msg: "Användaren finns inte" });
+//     }
+
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) {
+//       return res.status(400).json({ msg: "Ogiltiga uppgifter" });
+//     }
+
+//     res.json({ msg: "Du är inloggad" });
+//   } catch (err) {
+//     res.status(500).json({ msg: "Serverfel" });
+//   }
+// });
+
+// module.exports = router;
+
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ msg: "Användaren finns inte" });
+    const { email, password } = req.body;
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ msg: "Användaren finns inte" });
+      }
+  
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ msg: "Ogiltiga uppgifter" });
+      }
+  
+      res.json({ msg: "Du är inloggad" });
+    } catch (err) {
+      res.status(500).json({ msg: "Serverfel" });
     }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ msg: "Ogiltiga uppgifter" });
-    }
-
-    res.json({ msg: "Du är inloggad" });
-  } catch (err) {
-    res.status(500).json({ msg: "Serverfel" });
-  }
-});
-
-module.exports = router;
+  });
+  
+  module.exports = router;
