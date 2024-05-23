@@ -21,6 +21,7 @@ import Home from "./pages/home/home.jsx";
 import Checkout from "./pages/checkout/checkout.jsx";
 import CustomerService from "./pages/customerservice/customerservice.jsx";
 import Productdetail from "./pages/productdetail/Productdetail.jsx";
+import Admin from "./pages/admin/admin.jsx";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path: "customerservice",
         element: <CustomerService></CustomerService>,
+      },
+      {
+        path: "admin",
+        element: <Admin></Admin>,
       },
     ],
   },
