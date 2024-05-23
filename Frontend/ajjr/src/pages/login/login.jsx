@@ -157,9 +157,34 @@ function LoginPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  // const handleLogin = (event) => {
+  //   event.preventDefault();
+  //   fetch("http://localhost:3000/api/auth/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ email, password }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.msg === "Du är inloggad") {
+  //         setSuccess(data.msg);
+  //         setError("");
+  //       } else {
+  //         setError(data.msg);
+  //         setSuccess("");
+  //       }
+  //     })
+  //     .catch(() => {
+  //       setError("Ett fel inträffade vid anslutning till servern.");
+  //       setSuccess("");
+  //     });
+  // };
+
   const handleLogin = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/api/auth/login",  {
+    fetch("http://localhost:3000/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -169,33 +194,10 @@ function LoginPage() {
       .then((response) => response.json())
       .then((data) => {
         if (data.msg === "Du är inloggad") {
+          localStorage.setItem("isLoggedIn", true);
           setSuccess(data.msg);
           setError("");
-        } else {
-          setError(data.msg);
-          setSuccess("");
-        }
-      })
-      .catch(() => {
-        setError("Ett fel inträffade vid anslutning till servern.");
-        setSuccess("");
-      });
-  };
-
-  const handleRegister = (event) => {
-    event.preventDefault();
-    fetch("/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.msg === "Användare registrerad") {
-          setSuccess(data.msg);
-          setError("");
+          window.location.href = "/"; // Redirect to home page
         } else {
           setError(data.msg);
           setSuccess("");
