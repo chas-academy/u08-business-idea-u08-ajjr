@@ -13,47 +13,50 @@ function LoginPage() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    const user = users.find((user) => user.email === email);
-    if (!user) {
-      setError("Inget konto finns med den angivna e-postadressen.");
-      setSuccess("");
-    } else if (user.password !== password) {
-      setError("Fel lösenord angivet.");
-      setSuccess("");
-    } else {
-      setError("");
-      setSuccess("Du är inloggad!");
-    }
+    fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.msg === 'Du är inloggad') {
+        setSuccess(data.msg);
+        setError("");
+      } else {
+        setError(data.msg);
+        setSuccess("");
+      }
+    })
+    .catch(() => {
+      setError("Ett fel inträffade vid anslutning till servern.");
+    });
   };
 
-  const handlePasswordReset = (event) => {
+  const handleRegister = (event) => {
     event.preventDefault();
-    if (password !== confirmPassword) {
-      setError("Lösenorden matchar inte.");
-      setSuccess("");
-      return;
-    }
-
-    fetch("/api/update-password", {
-      method: "POST",
+    fetch('/api/auth/register', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, newPassword: password }),
+      body: JSON.stringify({ email, password }),
     })
-      .then((response) => response.json())
-      .then((data) => {
+    .then(response => response.json())
+    .then(data => {
+      if (data.msg === 'Användare registrerad') {
+        setSuccess(data.msg);
         setError("");
-        if (data.success) {
-          setSuccess("Ditt lösenord har ändrats.");
-          setIsResettingPassword(false);
-        } else {
-          setError("Kunde inte ändra lösenordet.");
-        }
-      })
-      .catch(() => {
-        setError("Ett fel inträffade vid anslutning till servern.");
-      });
+      } else {
+        setError(data.msg);
+        setSuccess("");
+      }
+    })
+    .catch(() => {
+      setError("Ett fel inträffade vid anslutning till servern.");
+    });
   };
 
   return (
