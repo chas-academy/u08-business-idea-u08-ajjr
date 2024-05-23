@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const product = require("./src/models/product.model.js");
+const productRoute = require("./src/routes/product.route.js");
 require("dotenv").config(); // Importera och konfigurera dotenv
 
 // Skapa en instans av express
@@ -11,7 +13,7 @@ app.use(cors());
 
 // Middleware för att hantera JSON-data och urlencoded data
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 // MongoDB-anslutning
 mongoose
@@ -26,6 +28,7 @@ mongoose
 const authRoutes = require("./src/routes/authRoutes.js");
 
 app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoute);
 
 // Enkel endpoint för att testa att servern är igång
 app.get("/", (req, res) => {

@@ -11,6 +11,11 @@ const ProductSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter the price of the product"],
     },
+    
+    notes: {
+      type: String,
+      required: false,
+    },
 
     price: {
       type: Number,
@@ -18,9 +23,9 @@ const ProductSchema = mongoose.Schema(
       default: 0,
     },
 
-    Image: {
+    image: {
       type: String,
-      required: true,
+      required: false,
     },
   },
   {
