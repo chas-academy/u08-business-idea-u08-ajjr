@@ -17,7 +17,6 @@ import {
 function Navigation() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-
   const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] =
     useState(false);
   const [isNavDropdownOpenAbout, setIsNavDropdownOpenAbout] = useState(false);
@@ -28,19 +27,16 @@ function Navigation() {
   }
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn") === 'true';
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
     setIsLoggedIn(loggedIn);
   }, []);
-  
+
   const handleLogout = () => {
     localStorage.setItem("isLoggedIn", false);
     setIsLoggedIn(false);
     // Redirect to home page
-    window.location.href = '/';
+    window.location.href = "/";
   };
-
-
-
 
   return (
     <Navbar
@@ -189,16 +185,24 @@ function Navigation() {
  */}
 
           {isLoggedIn ? (
-             <>
-             <Nav.Link as={Link} to="/myaccount">Mitt konto</Nav.Link>
-             <Nav.Link as={Link} to="/" onClick={handleLogout}>Logga ut</Nav.Link>
-           </>
-         ) : (
-           <>
-             <Nav.Link as={Link} to="/loggain">Logga in</Nav.Link>
-             <Nav.Link as={Link} to="/registerpage">Registrera dig</Nav.Link>
-           </>
-         )}
+            <>
+              <Nav.Link as={Link} to="/myaccount">
+                Mitt konto
+              </Nav.Link>
+              <Nav.Link as={Link} to="/" onClick={handleLogout}>
+                Logga ut
+              </Nav.Link>
+            </>
+          ) : (
+            <>
+              <Nav.Link as={Link} to="/loggain">
+                Logga in
+              </Nav.Link>
+              <Nav.Link as={Link} to="/registerpage">
+                Registrera dig
+              </Nav.Link>
+            </>
+          )}
 
           <Nav.Link as={Link} onClick={closeNav} to="kassa">
             Cart
