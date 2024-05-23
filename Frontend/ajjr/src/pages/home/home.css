@@ -170,7 +170,7 @@
 .carre {
     max-width: 1500px;
     margin-right: 115px;
-    margin-left: 115px;
+    margin-left: 185px;
     display: grid;
     justify-items: center;
     align-content: center;
@@ -199,11 +199,11 @@
 }
 
 .left-btn {
-    left: -15px;
+    left: -25px;
 }
 
 .right-btn {
-    right: -15px;
+    right: -25px;
 }
 
 .carousel-btn:hover {
