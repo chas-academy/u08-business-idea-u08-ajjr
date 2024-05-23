@@ -113,10 +113,6 @@ router.post("/register", async (req, res) => {
   }
 });
 
-
-
-
-
 // // Logga in en användare
 // router.post("/login", async (req, res) => {
 //   const { email, password } = req.body;
@@ -140,22 +136,31 @@ router.post("/register", async (req, res) => {
 // module.exports = router;
 
 router.post("/login", async (req, res) => {
-    const { email, password } = req.body;
-    try {
-      const user = await User.findOne({ email });
-      if (!user) {
-        return res.status(400).json({ msg: "Användaren finns inte" });
-      }
-  
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
-        return res.status(400).json({ msg: "Ogiltiga uppgifter" });
-      }
-  
-      res.json({ msg: "Du är inloggad" });
-    } catch (err) {
-      res.status(500).json({ msg: "Serverfel" });
+  const { email, password } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ msg: "Användaren finns inte" });
     }
-  });
-  
-  module.exports = router;
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ msg: "Ogiltiga uppgifter" });
+    }
+
+    res.json({ msg: "Du är inloggad" });
+  } catch (err) {
+    res.status(500).json({ msg: "Serverfel" });
+  }
+});
+
+
+
+router.post("/logout", (req, res) => {
+  // Om du använder sessions, skulle du göra något så här:
+  // req.session.destroy();
+  // Om du använder JWT och sparar det i en cookie:
+  res.cookie("token", "", { expires: new Date(0) });
+  res.status(200).json({ msg: "Du är utloggad" });
+});
+module.exports = router;
