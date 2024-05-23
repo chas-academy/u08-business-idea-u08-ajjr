@@ -1,0 +1,329 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.discover-hero {
+    width: 100vw;
+    height: 40vh;
+    object-fit: cover;
+}
+
+.tester-hero {
+    width: 100vw;
+    height: 40vh;
+    object-fit: cover;
+}
+
+.discover {
+    position: relative;
+    text-align: center;
+
+    a {
+        text-decoration: inherit;
+        color: inherit;
+    }
+}
+
+.discover-h2 {
+    position: absolute;
+    top: 170px;
+    left: 125px;
+    color: white;
+    font-size: 50px;
+    width: 500px;
+}
+
+.discover-h2:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.buy-button {
+    position: absolute;
+    top: 330px;
+    left: 320px;
+    background: black;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.buy-button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.slogan-h2 {
+    position: absolute;
+    bottom: 170px;
+    right: 65px;
+    color: white;
+    font-size: 50px;
+    width: 563px;
+}
+
+
+.pocket {
+    position: relative;
+    text-align: center;
+
+
+}
+
+.pocket-h2 {
+    position: absolute;
+    bottom: 20px;
+    left: 125px;
+    color: white;
+    font-size: 50px;
+}
+
+.testers {
+    position: relative;
+    text-align: center;
+
+
+
+
+
+    a {
+        text-decoration: inherit;
+        color: inherit;
+    }
+}
+
+.buy-button2 {
+    position: absolute;
+    top: 230px;
+    left: 405px;
+    background: black;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.buy-button2:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.tester-h2 {
+    position: absolute;
+    top: 50px;
+    left: 130px;
+    color: black;
+    font-size: 50px;
+    width: 660px;
+}
+
+.tester-h2:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.aroma-h2 {
+    position: absolute;
+    bottom: 113px;
+    right: 53px;
+    color: black;
+    font-size: 40px;
+}
+
+.aroma-h2:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    /* padding: 0 50px; */
+    max-width: 100%;
+
+}
+
+.product-card {
+    min-width: 18%;
+
+    /* flex: 0 0 auto; */
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+.carousel-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carre {
+    max-width: 1500px;
+    margin-right: 115px;
+    margin-left: 115px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    color: rgb(59, 59, 59);
+    cursor: pointer;
+    padding: 0;
+    width: 0px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-btn:focus {
+    outline: none;
+}
+
+.left-btn {
+    left: -15px;
+}
+
+.right-btn {
+    right: -15px;
+}
+
+.carousel-btn:hover {
+    color: #000000;
+}
+
+.card-img {
+    border-radius: 0px;
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel-btn {
+        display: none;
+    }
+
+    .product-card {
+        min-width: 50%;
+
+    }
+
+    .discover {
+        position: relative;
+        text-align: center;
+
+        .hero {
+            width: 100vw;
+            height: 80vh;
+        }
+
+
+
+        button {
+            position: absolute;
+            bottom: 15px;
+            right: 150px;
+            top: unset;
+            left: unset;
+            background: black;
+            padding: 5px 10px 5px 10px;
+            color: white;
+            font-size: 20px;
+        }
+
+        a {
+            text-decoration: inherit;
+            color: inherit;
+        }
+    }
+
+    .carre {
+        margin: 0px;
+
+    }
+
+    .discover-h2 {
+        position: absolute;
+        bottom: 35px;
+        left: 65px;
+        top: unset;
+        color: white;
+        font-size: 25px;
+        width: 250px;
+    }
+
+    .slogan-h2 {
+        display: none;
+    }
+
+    .pocket {
+        position: relative;
+        text-align: center;
+
+
+    }
+
+    .pocket-h2 {
+        position: absolute;
+        bottom: 8px;
+        left: 16px;
+        color: white;
+        font-size: 25px;
+    }
+
+    .testers {
+        position: relative;
+        text-align: center;
+
+
+
+        button {
+            position: absolute;
+            bottom: 15px;
+            right: 150px;
+            top: unset;
+            left: unset;
+            background: black;
+            padding: 5px 10px 5px 10px;
+            color: white;
+            font-size: 20px;
+        }
+
+        a {
+            text-decoration: inherit;
+            color: inherit;
+        }
+    }
+
+    .tester-h2 {
+        position: absolute;
+        bottom: 360px;
+        left: 35px;
+        top: unset;
+        color: black;
+        font-size: 25px;
+        width: 330px;
+    }
+
+    .aroma-h2 {
+        display: none;
+    }
+}

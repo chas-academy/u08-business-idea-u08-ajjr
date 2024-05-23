@@ -1,0 +1,65 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container .col-md-8 {
+  max-width: 800px;
+
+  margin: auto;
+
+  margin-top: 2rem;
+}
+
+.row-aboutus {
+  margin: 0;
+}
+
+.visiontext,
+.history p,
+.välgörenhet p,
+.contact .sammarbeten p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Bildstorleksjusteringar */
+.aboutusimg {
+  width: 100%;
+
+  border-radius: 8px;
+
+  max-height: 400px;
+
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+
+  .visiontext,
+  .history p,
+  .valgorenhet p,
+  .contact .sammarbeten p {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .container .col-md-8 {
+    max-width: 100%;
+  }
+
+  .row-aboutus .col-md-8,
+  .row-aboutus .col-md-4 {
+    order: 2;
+  }
+
+  .row-aboutus .col-md-4 {
+    order: 1;
+  }
+
+  .aboutusimg {
+    margin-bottom: 1rem;
+  }
+}

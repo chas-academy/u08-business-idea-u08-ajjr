@@ -1,0 +1,43 @@
+.regbtn:hover {
+    background-color: rgb(106, 100, 100);
+}
+
+.backgroundstyle {
+    /* background-image: url(".././../images/productajjr.jpg"); */
+    background: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg')no-repeat center center fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.formulor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.registercard {
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+@media (max-width: 576px) {
+    .card {
+        padding: 20px;
+    }
+
+    .formulor {
+        width: 100%;
+
+    }
+}
+
+.regbtn:hover {
+    background-color: rgb(106, 100, 100);
+}

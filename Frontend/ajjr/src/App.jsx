@@ -1,40 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  Outlet,
+} from "react-router-dom";
 import FAQ from "./pages/faq/faq";
 import "./App.css";
-import Footer from "./components/footer/Footer";
+import "./index.css";
+import Footer from "./components/footer/footer";
+import Home from "./pages/home/home";
+import AboutUs from "./pages/aboutus/aboutus";
+import { FaQq } from "react-icons/fa";
+import Navigation from "./components/navbar/navbar";
 
 const App = () => {
   return (
     <>
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              {}
-              {}
-              <li>
-                <Link to="/faq">FAQ</Link>
-              </li>
-            </ul>
-          </nav>
-          <div className="main-content">
-            <Routes>
-              {}
-              {}
-              <Route path="/faq" element={<FAQ faqData={faqData} />} />
-            </Routes>
-          </div>
-        </div>
-      </Router>
+      <Navigation></Navigation>
+      <Outlet></Outlet>
       <Footer></Footer>
     </>
   );
 };
-
-const faqData = [
-  { question: "Har ni en butik?", answer: "Ja, Chas academy lokal 7" },
-  { question: "Vad är Musk Oud?", answer: "Parfym från Mekka" },
-];
 
 export default App;

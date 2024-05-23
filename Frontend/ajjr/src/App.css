@@ -1,9 +1,9 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
+
 
 .logo {
   height: 6em;
@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -43,14 +46,19 @@
 
 .faq-container {
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .faq-wrapper {
-  width: 1354px;
-  height: 858px;
-  background-color: #F6F6F6;
+  width: 100%;
+  max-width: 800px;
+  background-color: #f6f6f6;
   padding: 20px;
-  overflow: auto; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .faq-box {
@@ -60,19 +68,22 @@
 .faq {
   margin-bottom: 20px;
   padding: 10px;
-  background-color: #FFFFFF; 
   border-radius: 5px;
   cursor: pointer;
-}
-
-.faq.open {
-  background-color: #E0E0E0;
+  border-bottom: 1px solid #ccc;
 }
 
 .faq-question {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .faq-answer {
   margin-top: 10px;
+}
+
+@media (max-width: 767px) {
+  .faq-wrapper {
+    width: 90%;
+  }
 }
