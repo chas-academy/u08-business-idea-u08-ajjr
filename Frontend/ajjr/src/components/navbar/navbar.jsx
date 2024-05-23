@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../navbar/navbar.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logoImg from "../../images/ajjrlogo.png";
 import {
   Link,
@@ -15,6 +15,8 @@ import {
 } from "react-router-dom";
 
 function Navigation() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] =
     useState(false);
   const [isNavDropdownOpenAbout, setIsNavDropdownOpenAbout] = useState(false);
@@ -23,6 +25,18 @@ function Navigation() {
   function closeNav() {
     setIsExpanded(false);
   }
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedIn);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.setItem("isLoggedIn", false);
+    setIsLoggedIn(false);
+    // Redirect to home page
+    window.location.href = "/";
+  };
 
   return (
     <Navbar
@@ -78,7 +92,11 @@ function Navigation() {
               Oud
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/testers">
+            <NavDropdown.Item
+              as={Link}
+              onClick={closeNav}
+              to="produkter/testers"
+            >
               Testers
             </NavDropdown.Item>
           </NavDropdown>
@@ -145,6 +163,8 @@ function Navigation() {
               Kontakta oss
             </NavDropdown.Item>
           </NavDropdown>
+
+          {/* 
           <Nav.Link
             as={Link}
             onClick={closeNav}
@@ -162,6 +182,28 @@ function Navigation() {
           >
             Registrera dig
           </Nav.Link>
+ */}
+
+          {isLoggedIn ? (
+            <>
+              <Nav.Link as={Link} to="/myaccount">
+                Mitt konto
+              </Nav.Link>
+              <Nav.Link as={Link} to="/" onClick={handleLogout}>
+                Logga ut
+              </Nav.Link>
+            </>
+          ) : (
+            <>
+              <Nav.Link as={Link} to="/loggain">
+                Logga in
+              </Nav.Link>
+              <Nav.Link as={Link} to="/registerpage">
+                Registrera dig
+              </Nav.Link>
+            </>
+          )}
+
           <Nav.Link as={Link} onClick={closeNav} to="kassa">
             Cart
           </Nav.Link>
