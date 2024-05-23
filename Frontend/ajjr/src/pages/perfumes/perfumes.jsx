@@ -75,6 +75,7 @@ import product16 from "../../images/product16.jpg";
 import product17 from "../../images/product17.jpg";
 import product18 from "../../images/product18.jpg";
 import testers from "../../images/testers.jpg";
+import { Link } from "react-router-dom";
 
 const Perfumes = () => {
     const [activeFilter, setActiveFilter] = useState(null); // State för att hantera aktivt filter
@@ -164,13 +165,19 @@ const Perfumes = () => {
                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
                         {products.map((product) => (
                             <div className="col" key={product.id}>
-                                <div className="card product-card">
-                                    <img src={product.image} className="card-img-top" alt={product.name} />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{product.name}</h5>
-                                        <p className="card-text">{product.price}</p>
+                                <Link to="/productdetail">
+                                    <div className="card product-card">
+                                        <img
+                                            src={product.image}
+                                            className="card-img-top"
+                                            alt={product.name}
+                                        />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{product.name}</h5>
+                                            <p className="card-text">{product.price}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         ))}
                     </div>

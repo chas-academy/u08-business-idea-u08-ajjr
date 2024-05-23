@@ -20,6 +20,7 @@ import RegisterPage from "./pages/register/register.jsx";
 import Home from "./pages/home/home.jsx";
 import Checkout from "./pages/checkout/checkout.jsx";
 import CustomerService from "./pages/customerservice/customerservice.jsx";
+import Productdetail from "./pages/productdetail/Productdetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
           { path: "oud", element: <Perfumes /> },
           { path: "testers", element: <Perfumes /> },
         ],
+      },
+      {
+        path: "productdetail",
+        element: <Productdetail></Productdetail>,
       },
       {
         path: "kontakt",
@@ -62,7 +67,7 @@ const router = createBrowserRouter([
       },
       {
         path: "customerservice",
-        element: <CustomerService></CustomerService> ,
+        element: <CustomerService></CustomerService>,
       },
     ],
   },
