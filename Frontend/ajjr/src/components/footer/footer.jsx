@@ -1,8 +1,8 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookSquare } from "react-icons/fa";
 import { AiFillTikTok } from "react-icons/ai";
+import "./footer.css";
 
 const Footer = () => {
   const linksData = {
@@ -30,92 +30,52 @@ const Footer = () => {
       icon: GrInstagram,
       color: "brown",
       size: 40,
-      link: "instagram.com",
+      link: "https://instagram.com",
     },
     {
       icon: AiFillTikTok,
       color: "black",
       size: 40,
-      link: "tiktok.com",
+      link: "https://tiktok.com",
     },
     {
       icon: FaFacebookSquare,
       color: "blue",
       size: 40,
-      link: "facebook.com",
+      link: "https://facebook.com",
     },
   ];
 
   return (
-    <div
-      className="container-fluid bg-gainsboro  footer pt-5 mt-5 wow fadeIn"
-      data-wow-delay="0.1s"
-    >
-      <div
-        className="container py-5"
-        style={{ marginLeft: "5rem", marginRight: "15rem" }}
-      >
-        <Row>
-          {/* Links Sections */}
+    <div className="footer container-fluid wow fadeIn" data-wow-delay="0.1s">
+      <div className="container">
+        <div className="footer-content">
           {Object.entries(linksData).map(([title, links], index) => (
-            <Col xs={12} md={6} lg={3} key={index}>
-              <h5 className="section-title ff-secondary text-start fw-bold ">
-                {title}
-              </h5>
-              <ul className="list-unstyled">
+            <div className="footer-section" key={index}>
+              <h5 className="section-title">{title}</h5>
+              <ul>
                 {links.map((link, idx) => (
-                  <li key={idx} className="m-2">
-                    <a
-                      href={link.link}
-                      className="text-dark text-light fw-normal"
-                    >
-                      {link.label}
-                    </a>
+                  <li key={idx}>
+                    <a href={link.link}>{link.label}</a>
                   </li>
                 ))}
               </ul>
-            </Col>
+            </div>
           ))}
-          {/* Social Media Section */}
-          <Col
-            xs={12}
-            md={6}
-            lg={3}
-            className="d-flex flex-column justify-content-lg-end"
-          >
-            <h6 className="section-title ff-secondary text-start d-flex align-items-center fw-normal  ">
-              Följ våra sociala medier
-            </h6>
-            <div className="d-flex flex-wrap" style={{ marginLeft: "-4rem" }}>
-              {/* Wrap links in a flex container */}
+          <div className="footer-section social-media">
+            <h6 className="social-media-title">Följ våra sociala medier</h6>
+            <div className="social-icons">
               {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.link} // Add href attribute here
-                  className="btn btn-link d-flex align-items-center me-3 mb-3"
-                >
-                  {/* Wrap icon in a flex container */}
-                  {link.icon === GrInstagram ||
-                  link.icon === AiFillTikTok ||
-                  link.icon === FaFacebookSquare ? (
-                    <div className="d-flex align-items-center me-2">
-                      {React.createElement(link.icon, {
-                        style: { fontSize: link.size, color: link.color },
-                        className: "m-2",
-                      })}
-                    </div>
-                  ) : (
-                    React.createElement(link.icon, {
-                      style: { fontSize: link.size, color: link.color },
-                      className: "m-2",
-                    })
-                  )}
-                  <span>{link.label}</span>
+                <a key={index} href={link.link} className="btn btn-link">
+                  {React.createElement(link.icon, {
+                    style: { fontSize: link.size, color: link.color },
+                    className: "icon",
+                  })}
                 </a>
               ))}
             </div>
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
     </div>
   );
