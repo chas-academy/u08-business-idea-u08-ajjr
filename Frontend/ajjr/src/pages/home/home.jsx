@@ -173,15 +173,15 @@ function Home() {
       <div className="testers">
         <img src={testers} alt="Testers" className="img-fluid tester-hero" />
         <h2 className="text-center my-4 tester-h2">
-          <Link to="testers">
+          <Link to="produkter/testers">
             OSÄKER PÅ VAD DU GILLAR? BESTÄLL VÅRA TESTERS NU!
           </Link>
         </h2>
         <h2 className="text-center my-4 aroma-h2">
-          <Link to="testers">UTFORSKA NYA AROMER</Link>
+          <Link to="produkter/testers">UTFORSKA NYA AROMER</Link>
         </h2>
         <button className="buy-button2">
-          <Link to="testers">Köp nu</Link>
+          <Link to="produkter/testers">Köp nu</Link>
         </button>
       </div>
 
