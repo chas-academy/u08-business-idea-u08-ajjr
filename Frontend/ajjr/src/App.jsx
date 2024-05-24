@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import FAQ from "./pages/faq/faq";
 import "./App.css";
-import "./index.css"
-import Footer from "./components/footer/footer";
+import "./index.css";
+import Footer from "./components/footer/Footer";
 import Home from "./pages/home/home";
 import AboutUs from "./pages/aboutus/aboutus";
 import { FaQq } from "react-icons/fa";
