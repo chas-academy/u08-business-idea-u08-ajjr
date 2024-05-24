@@ -19,10 +19,11 @@ const linksData = {
     { label: "FAQ - vanliga frågor och svar", link: "/faq" },
   ],
   Produkter: [
-    { label: "Herr", link: "/herr" },
-    { label: "Dam", link: "/dam" },
-    { label: "Unisex", link: "/unisex" },
-    { label: "Musk & Oud", link: "/musk-oud" },
+    { label: "Herr", link: "produkter/herr" },
+    { label: "Dam", link: "produkter/dam" },
+    { label: "Unisex", link: "produkter/unisex" },
+    { label: "Musk ", link: "produkter/musk" },
+    { label: "Oud", link: "produkter/Oud" },
   ],
 };
 
