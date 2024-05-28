@@ -182,4 +182,26 @@ router.post("/logout", (req, res) => {
   res.cookie("token", "", { expires: new Date(0) });
   res.status(200).json({ msg: "Du är utloggad" });
 });
+
+
+router.get("/orders", async (req, res) => {
+    // Detta är en exempelmetod på orderstruktur
+    const orders = [
+      {
+        id: "123",
+        date: new Date(),
+        total: 299,
+        status: "Levererad",
+      },
+      {
+        id: "456",
+        date: new Date(),
+        total: 499,
+        status: "Under behandling",
+      },
+    ];
+    res.json(orders);
+  });
+
+
 module.exports = router;

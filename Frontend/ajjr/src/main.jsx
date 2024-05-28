@@ -22,6 +22,7 @@ import Checkout from "./pages/checkout/checkout.jsx";
 import CustomerService from "./pages/customerservice/customerservice.jsx";
 import Productdetail from "./pages/productdetail/Productdetail.jsx";
 import Admin from "./pages/admin/admin.jsx";
+import MyAccount from "./pages/myaccount/my-account.jsx";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <Admin></Admin>,
+      },
+      {
+        path: "myaccount",
+        element: <MyAccount></MyAccount>,
       },
     ],
   },
