@@ -27,8 +27,11 @@ const getProduct = async (req, res) => {
 // Create a product    
 const createProduct = async (req, res) => {
   try {
-    const product = await Product.create(req.body);
-    res.status(200).json(product);
+    /* const product = await Product.create(req.body);
+    res.status(200).json(product); */
+    console.log(req.body);
+    console.log(req.file);
+    res.status(200).send("data came in to the backend");
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

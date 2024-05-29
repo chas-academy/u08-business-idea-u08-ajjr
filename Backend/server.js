@@ -55,6 +55,7 @@ const orderRoutes = require("./src/routes/orderRoute.js");
 
 const productRoute = require("./src/routes/product.route.js");
 require("dotenv").config(); // Importera och konfigurera dotenv
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/ajjrofficial";
 
 // Skapa en instans av express
 const app = express();
@@ -67,11 +68,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Hämta MongoDB URI och port från miljövariabler
-const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/ajjrofficial";
 const PORT = process.env.PORT || 3000;
 
 // MongoDB-anslutning
 mongoose
+
   .connect(mongoUri, {
   })
   .then(() => console.log("Anslutning till MongoDB lyckades"))
