@@ -4,6 +4,7 @@ const cors = require("cors");
 const product = require("./src/models/product.model.js");
 const productRoute = require("./src/routes/product.route.js");
 require("dotenv").config(); // Importera och konfigurera dotenv
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/ajjrofficial";
 
 // Skapa en instans av express
 const app = express();
@@ -21,6 +22,7 @@ const PORT = process.env.PORT || 3000;
 
 // MongoDB-anslutning
 mongoose
+
   .connect(mongoUri, {
   })
   .then(() => console.log("Anslutning till MongoDB lyckades"))
