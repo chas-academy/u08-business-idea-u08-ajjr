@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import FAQ from "./pages/faq/faq";
 import "./App.css";
-import "./index.css"
+import "./index.css";
 import Footer from "./components/footer/footer";
 import Home from "./pages/home/home";
 import AboutUs from "./pages/aboutus/aboutus";

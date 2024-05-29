@@ -16,9 +16,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Hämta MongoDB URI och port från miljövariabler
+const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/ajjrofficial";
+const PORT = process.env.PORT || 3000;
+
 // MongoDB-anslutning
 mongoose
-  .connect(mongoUri)
+
+  .connect(mongoUri, {
+  })
   .then(() => console.log("Anslutning till MongoDB lyckades"))
   .catch((err) => {
     console.error("Anslutning till MongoDB misslyckades: ", err);
@@ -36,6 +42,5 @@ app.get("/", (req, res) => {
   res.send("Hello from the Server.js");
 });
 
-// Definiera porten och starta servern
-const PORT = process.env.PORT || 3000;
+// Starta servern
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
