@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App.jsx";
@@ -83,14 +83,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Skapa en React-root för appen
 const appRoot = ReactDOM.createRoot(document.getElementById("root"));
 appRoot.render(<RouterProvider router={router}></RouterProvider>);
 
-/* // Skapa en separat React-root för navbaren
-const navbarRoot = ReactDOM.createRoot(document.getElementById('navbar-root'));
-navbarRoot.render(
-  <React.StrictMode>
-    <Navbar />
-  </React.StrictMode>
-); */
+

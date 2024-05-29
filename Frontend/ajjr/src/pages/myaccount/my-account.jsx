@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Container, Form, Button, Table, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,7 +15,6 @@ function MyAccount() {
   const [showChangePassword, setShowChangePassword] = useState(false);
 
   useEffect(() => {
-    // Hämta användarens tidigare beställningar
     fetchOrders();
   }, []);
 
@@ -22,20 +22,28 @@ function MyAccount() {
     try {
       const response = await fetch("http://localhost:3000/api/orders", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Om du använder JWT
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use JWT if applicable
         },
       });
       const data = await response.json();
-      setOrders(data);
+      console.log("orderdata", data);
+
+      if (Array.isArray(data)) {
+        setOrders(data);
+      } else {
+        setOrders([]);
+        console.error("Fetched orders are not an array:", data);
+      }
     } catch (err) {
-      console.error("Kunde inte hämta beställningar:", err);
+      console.error("Failed to fetch orders:", err);
+      setOrders([]);
     }
   };
 
   const handleChangePassword = async (e) => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
-      setError("Lösenorden matchar inte.");
+      setError("Passwords do not match.");
       return;
     }
     try {
@@ -55,7 +63,7 @@ function MyAccount() {
         setError(data.msg);
       }
     } catch (err) {
-      setError("Ett fel inträffade vid anslutning till servern.");
+      setError("An error occurred while connecting to the server.");
     }
   };
 
@@ -129,8 +137,8 @@ function MyAccount() {
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr key={order.id}>
-                  <td>{order.id}</td>
+                <tr key={order._id}>
+                  <td>{order._id}</td>
                   <td>{new Date(order.date).toLocaleDateString()}</td>
                   <td>{order.total} SEK</td>
                   <td>{order.status}</td>
