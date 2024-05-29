@@ -1,24 +1,38 @@
-const express = require("express");
-// const Product = require("../models/product.model.js");
-const router = express.Router();
-// const {getProducts, getProduct, createProduct, updateProduct, deleteProduct} = require('../controllers/product.controller.js');
 
-//get all products
-router.get('/', (req,res)=> {
-res.send ("test")
+const express = require("express");
+const router = express.Router();
+const Order = require("../models/order.model"); 
+const authenticateJWT = require("../middleware/authenticateJWT");
+
+// Create a new order
+router.post("/", async (req, res) => {
+    try {
+        const { cartItems, total, name, email, address, mobile, cardNumber, expDate, cvv } = req.body;
+
+        const newOrder = new Order({
+            cartItems,
+            total,
+            customer: { name, email, address, mobile },
+            payment: { cardNumber, expDate, cvv },
+            date: new Date(),
+            status: "Under behandling",
+        });
+
+        await newOrder.save();
+        res.status(201).json({ message: "Order submitted successfully." });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to submit order.", error });
+    }
 });
 
-// get a single product
-router.get("/:id", getProduct);
+// Fetch user's orders
+router.get("/", authenticateJWT, async (req, res) => {
+    try {
+        const orders = await Order.find({ "customer.email": req.user.email }); // Use user.email from JWT
+        res.json(orders);
+    } catch (err) {
+        res.status(500).json({ msg: "Server error" });
+    }
+});
 
-// create a product
-router.post("/", createProduct);
-
-// // update a product
-// router.put("/:id", updateProduct);
-
-// // delete a product
-// router.delete("/:id", deleteProduct);
-
-// export the router    
 module.exports = router;
