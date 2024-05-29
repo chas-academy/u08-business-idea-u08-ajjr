@@ -4,12 +4,13 @@ import "./admin.css";
 
 function AdminPage() {
   const [product, setProduct] = useState({
-    artikelnummer: "",
     namn: "",
-    ordPris: "",
-    dofter: "",
-    antalILager: "",
-    rabatt: "",
+    beskrivning: "",
+    pris: "",
+    topNoter: "",
+    mellanNoter: "",
+    basNoter: "",
+    antal: "",
   });
 
   //Hantera produkt/textuppladdning
@@ -33,7 +34,27 @@ function AdminPage() {
     e.preventDefault();
     console.log("Submitting product", product);
     alert("Information submitted. Check console for data.");
+
+    const formData = new FormData()
+    for (const [key, value] of Object.entries(product)) {
+      formData.append(key, value)
+    }
+    /* for (let pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+    } */
+    if (product.namn && product.beskrivning && product.pris && product.topNoter && product.mellanNoter && product.basNoter && product.antal) {
+      fetch("http://localhost:3000/api/products", {
+        method: "post",
+        mode: "cors",
+        /*  headers: {
+           "Content-Type": "multipart/form-data"
+         }, */
+        body: formData,
+      })
+    }
   };
+
+
 
   return (
     <div className="backgroundstyle">
@@ -45,17 +66,7 @@ function AdminPage() {
             </Card.Title>
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3">
-                <Form.Label>Artikelnummer</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="artikelnummer"
-                  value={product.artikelnummer}
-                  onChange={handleChange}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Namn</Form.Label>
+                <Form.Label>Produkt namn</Form.Label>
                 <Form.Control
                   type="text"
                   name="namn"
@@ -65,21 +76,51 @@ function AdminPage() {
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Ord.Pris</Form.Label>
+                <Form.Label>Beskrivning</Form.Label>
                 <Form.Control
                   type="text"
-                  name="ordPris"
-                  value={product.ordPris}
+                  name="beskrivning"
+                  value={product.beskrivning}
                   onChange={handleChange}
                   required
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Dofter</Form.Label>
+                <Form.Label>Pris</Form.Label>
                 <Form.Control
                   type="text"
-                  name="dofter"
-                  value={product.doftar}
+                  name="pris"
+                  value={product.pris}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Top noter</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="topNoter"
+                  value={product.topNoter}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Mellan noter</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="mellanNoter"
+                  value={product.mellanNoter}
+                  onChange={handleChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Label>Bas noter</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="basNoter"
+                  value={product.basNoter}
                   onChange={handleChange}
                   required
                 />
@@ -88,21 +129,13 @@ function AdminPage() {
                 <Form.Label>Antal i Lager</Form.Label>
                 <Form.Control
                   type="number"
-                  name="antalILager"
-                  value={product.antalILager}
+                  name="antal"
+                  value={product.antal}
                   onChange={handleChange}
                   required
                 />
               </Form.Group>
               <Form.Group className="mb-3">
-                <Form.Label>Rabatt</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="rabatt"
-                  value={product.rabatt}
-                  onChange={handleChange}
-                  required
-                />
                 <Form.Group className="mb-3">
                   <Form.Label>Produktbild</Form.Label>
                   <Form.Control type="file" onChange={handleFileChange} />
