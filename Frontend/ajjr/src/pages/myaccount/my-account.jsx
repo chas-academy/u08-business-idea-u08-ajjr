@@ -26,6 +26,7 @@ function MyAccount() {
         },
       });
       const data = await response.json();
+      console.log("orderdata", data)
       setOrders(data);
     } catch (err) {
       console.error("Kunde inte hämta beställningar:", err);

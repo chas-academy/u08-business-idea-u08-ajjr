@@ -31,9 +31,11 @@ mongoose
 
 // Importera autentiseringsroutes
 const authRoutes = require("./src/routes/authRoutes.js");
+const orderRoute = require("./src/routes/orderRoute.js")
 
 app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoute);
+app.use("/api/orders", orderRoute);
 
 // Enkel endpoint för att testa att servern är igång
 app.get("/", (req, res) => {
