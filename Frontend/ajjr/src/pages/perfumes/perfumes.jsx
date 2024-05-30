@@ -312,13 +312,16 @@ const Perfumes = () => {
         <div className="my-5">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             {products.map((product) => (
+
               <div className="col" key={product.id}>
                 <div className="card product-card">
-                  <img
-                    src={product.image}
-                    className="card-img-top"
-                    alt={product.name}
-                  />
+                  <Link to="/productdetail">
+                    <img
+                      src={product.image}
+                      className="card-img-top"
+                      alt={product.name}
+                    />
+                  </Link>
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">{product.price} SEK</p>
@@ -331,6 +334,7 @@ const Perfumes = () => {
                   </div>
                 </div>
               </div>
+
             ))}
           </div>
         </div>

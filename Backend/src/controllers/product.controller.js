@@ -31,7 +31,21 @@ const createProduct = async (req, res) => {
     res.status(200).json(product); */
     console.log(req.body);
     console.log(req.file);
-    res.status(200).send("data came in to the backend");
+    const newProduct = new Product({
+      name: req.body.name,
+      description: req.body.description,
+      category: req.body.category,
+      price: req.body.price,
+      topNotes: req.body.topnNotes,
+      middleNotes: req.body.middleNotes,
+      baseNotes: req.body.baseNotes,
+      quantity: req.body.quantity,
+      image: req.file.filename,
+    });
+    const savedProduct = await newProduct.save();
+    /* console.log(newProduct); */
+    res.status(201).json(savedProduct);
+    /* res.status(200).send("data came in to the backend"); */
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

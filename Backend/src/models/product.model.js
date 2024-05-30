@@ -17,11 +17,6 @@ const ProductSchema = new Schema(
       type: String,
       required: [true, "Please enter the price of the category"],
     }, // category: Herr, Dam, Unisex, Musk, Oud - define the category of the product
-    
-    notes: {
-      type: String,
-      required: false,
-    }, // notes: notes define the scent of the product
 
     price: {
       type: Number,
@@ -29,7 +24,22 @@ const ProductSchema = new Schema(
       default: 0,
     }, // price: price of the product
 
-    storage: {
+    topNotes: {
+      type: String,
+      required: false,
+    }, // notes: notes define the scent of the product
+
+    middleNotes: {
+      type: String,
+      required: false,
+    }, // notes: notes define the scent of the product
+
+    baseNotes: {
+      type: String,
+      required: false,
+    }, // notes: notes define the scent of the product
+
+    quantity: {
       type: Number,
       required: true,
       default: 0,
