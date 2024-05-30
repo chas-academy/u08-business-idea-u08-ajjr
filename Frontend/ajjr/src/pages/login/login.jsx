@@ -13,9 +13,12 @@ function LoginPage() {
     event.preventDefault();
     fetch("http://localhost:3000/api/auth/login", {
       method: "POST",
+      mode:"cors",
       headers: {
         "Content-Type": "application/json",
+     
       },
+      credentials: "include",
       body: JSON.stringify({ email, password }),
     })
       .then((response) => response.json())
@@ -24,7 +27,7 @@ function LoginPage() {
           localStorage.setItem("isLoggedIn", true);
           setSuccess(data.msg);
           setError("");
-          window.location.href = "/"; // Redirect to home page
+       window.location.href = "/"; // Redirect to home page
         } else {
           setError(data.msg);
           setSuccess("");
