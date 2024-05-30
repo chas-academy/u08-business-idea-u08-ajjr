@@ -136,7 +136,6 @@ function MyAccount() {
                 <th>Totalt</th>
                 <th>Status</th>
                 <th>Produkt</th> 
-           
               </tr>
             </thead>
             <tbody>
