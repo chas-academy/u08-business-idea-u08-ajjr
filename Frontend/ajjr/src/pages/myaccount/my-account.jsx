@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from "react";
 import { Container, Form, Button, Table, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,8 +23,9 @@ function MyAccount() {
     try {
       const response = await fetch("http://localhost:3000/api/orders", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use JWT if applicable
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
+        credentials: "include",
       });
       const data = await response.json();
       console.log("orderdata", data);
@@ -133,6 +135,8 @@ function MyAccount() {
                 <th>Datum</th>
                 <th>Totalt</th>
                 <th>Status</th>
+                <th>Produkt</th> 
+           
               </tr>
             </thead>
             <tbody>
@@ -142,6 +146,13 @@ function MyAccount() {
                   <td>{new Date(order.date).toLocaleDateString()}</td>
                   <td>{order.total} SEK</td>
                   <td>{order.status}</td>
+                  <td>
+                    {order.cartItems.map((item) => (
+                      <div key={item.id} className="d-flex align-items-center">
+                        {item.name}
+                      </div>
+                    ))}
+                  </td> {/* Visar produkt namn */}
                 </tr>
               ))}
             </tbody>
