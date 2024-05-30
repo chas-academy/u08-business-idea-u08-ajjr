@@ -4,13 +4,14 @@ import "./admin.css";
 
 function AdminPage() {
   const [product, setProduct] = useState({
-    namn: "",
-    beskrivning: "",
-    pris: "",
-    topNoter: "",
-    mellanNoter: "",
-    basNoter: "",
-    antal: "",
+    name: "",
+    description: "",
+    category: "",
+    price: null,
+    topNotes: "",
+    middleNotes: "",
+    baseNotes: "",
+    quantity: null,
   });
 
   //Hantera produkt/textuppladdning
@@ -42,7 +43,7 @@ function AdminPage() {
     /* for (let pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1]);
     } */
-    if (product.namn && product.beskrivning && product.pris && product.topNoter && product.mellanNoter && product.basNoter && product.antal) {
+    if (product.name && product.description && product.category && product.price && product.topNotes && product.middleNotes && product.baseNotes && product.quantity) {
       fetch("http://localhost:3000/api/products", {
         method: "post",
         mode: "cors",
@@ -69,8 +70,8 @@ function AdminPage() {
                 <Form.Label>Produkt namn</Form.Label>
                 <Form.Control
                   type="text"
-                  name="namn"
-                  value={product.namn}
+                  name="name"
+                  value={product.name}
                   onChange={handleChange}
                   required
                 />
@@ -79,8 +80,16 @@ function AdminPage() {
                 <Form.Label>Beskrivning</Form.Label>
                 <Form.Control
                   type="text"
-                  name="beskrivning"
-                  value={product.beskrivning}
+                  name="description"
+                  value={product.description}
+                  onChange={handleChange}
+                  required
+                />
+                <Form.Label>Kategori</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="category"
+                  value={product.category}
                   onChange={handleChange}
                   required
                 />
@@ -89,8 +98,8 @@ function AdminPage() {
                 <Form.Label>Pris</Form.Label>
                 <Form.Control
                   type="text"
-                  name="pris"
-                  value={product.pris}
+                  name="price"
+                  value={product.price}
                   onChange={handleChange}
                   required
                 />
@@ -99,8 +108,8 @@ function AdminPage() {
                 <Form.Label>Top noter</Form.Label>
                 <Form.Control
                   type="text"
-                  name="topNoter"
-                  value={product.topNoter}
+                  name="topNotes"
+                  value={product.topNotes}
                   onChange={handleChange}
                   required
                 />
@@ -109,8 +118,8 @@ function AdminPage() {
                 <Form.Label>Mellan noter</Form.Label>
                 <Form.Control
                   type="text"
-                  name="mellanNoter"
-                  value={product.mellanNoter}
+                  name="middleNotes"
+                  value={product.middleNotes}
                   onChange={handleChange}
                   required
                 />
@@ -119,8 +128,8 @@ function AdminPage() {
                 <Form.Label>Bas noter</Form.Label>
                 <Form.Control
                   type="text"
-                  name="basNoter"
-                  value={product.basNoter}
+                  name="baseNotes"
+                  value={product.baseNotes}
                   onChange={handleChange}
                   required
                 />
@@ -129,8 +138,8 @@ function AdminPage() {
                 <Form.Label>Antal i Lager</Form.Label>
                 <Form.Control
                   type="number"
-                  name="antal"
-                  value={product.antal}
+                  name="quantity"
+                  value={product.quantity}
                   onChange={handleChange}
                   required
                 />
