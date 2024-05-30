@@ -3,6 +3,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
 const router = express.Router();
+const jwt = require("jsonwebtoken")
 
 router.post("/reset-password", async (req, res) => {
   const { email, newPassword } = req.body;
@@ -78,16 +79,33 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ msg: "Användarnamn/Lösenord är fel" });
     }
 
-    res.json({ msg: "Du är inloggad" });
+    const token = jwt.sign(
+        {
+            userEmail: user.email,
+        },
+        process.env.JWT_SECRET,
+        { expiresIn: "24h" }
+    );
+
+    res.cookie("jwt_token", token, {
+        httpOnly:true,
+    }).json({ msg: "Du är inloggad" });
   } catch (err) {
     res.status(500).json({ msg: "Serverfel" });
   }
 });
 
+
+
 router.post("/logout", (req, res) => {
-  res.cookie("token", "", { expires: new Date(0) });
-  res.status(200).json({ msg: "Du är utloggad" });
+    res.cookie("jwt_token", "", { expires: new Date(0) });
+
+    res.status(200).json({ msg: "Du är utloggad" });
 });
+
+
+
+
 
 
 router.get("/orders", async (req, res) => {

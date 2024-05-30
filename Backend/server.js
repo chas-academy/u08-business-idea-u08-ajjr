@@ -52,17 +52,25 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const product = require("./src/models/product.model.js");
 const orderRoutes = require("./src/routes/orderRoute.js");
+const cookieParser = require("cookie-parser");
 
 const productRoute = require("./src/routes/product.route.js");
 require("dotenv").config(); // Importera och konfigurera dotenv
-const mongoUri = process.env.MONGODB_URI || "mongodb://localhost:27017/ajjrofficial";
+const mongoUri =
+  process.env.MONGODB_URI || "mongodb://localhost:27017/ajjrofficial";
 
-// Skapa en instans av express
+
 const app = express();
 
 // Tillåt alla domäner att göra förfrågningar
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 
+app.use(cookieParser());
 // Middleware för att hantera JSON-data och urlencoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -73,8 +81,7 @@ const PORT = process.env.PORT || 3000;
 // MongoDB-anslutning
 mongoose
 
-  .connect(mongoUri, {
-  })
+  .connect(mongoUri, {})
   .then(() => console.log("Anslutning till MongoDB lyckades"))
   .catch((err) => {
     console.error("Anslutning till MongoDB misslyckades: ", err);
