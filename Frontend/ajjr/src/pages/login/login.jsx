@@ -67,7 +67,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="container mt-5 d-flex justify-content-center align-items-center">
+    <div className="backgroundstyle container d-flex justify-content-center align-items-center">
       <div className="login-form row justify-content-center w-100">
         <div className="fullformlogin">
           <div className="card shadow-lg p-5 border-0">
