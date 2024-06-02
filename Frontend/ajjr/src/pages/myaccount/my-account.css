@@ -1,46 +1,42 @@
-/* my-account.css */
 .mittkontocontainer {
-    margin-top: 20px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
 
+
+
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mittkonto,
+.bestallningar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+
+}
+
+@media (max-width: 768px) {
+
+  .mittkonto,
+  .bestallningar {
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    padding: 10px;
   }
-  
-  .mt-3 {
-    margin-top: 1rem;
+
+  .mittkontocontainer {
+    padding: 10px;
   }
-
-
-
-  .mittkonto , .bestallningar{
-    display: flex;
-    border: none !important;
-    flex-direction: column;
-    justify-content: space-between;
-    
-    flex: 1 1 auto;
-    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
-    color: var(--bs-card-color);
-
-  }
-
-
-  @media (max-width: 768px) {
-    
-        .mittkonto , .bestallningar {
-            border: 1px solid rgba(0, 0, 0, 0.175);
-            transition: none;
-        }
-
-        .mittkontocontainer {
-            width: auto;
-        }
-    }
-    
-    
-
+}

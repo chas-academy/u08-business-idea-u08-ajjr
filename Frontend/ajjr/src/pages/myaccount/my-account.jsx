@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { Container, Form, Button, Table, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -70,7 +68,7 @@ function MyAccount() {
   };
 
   return (
-    <div className="mittkontocontainer">
+    <Container className="mittkontocontainer">
       <h2 className="my-4">Mitt Konto</h2>
       <Card className="mb-4">
         <div className="mittkonto">
@@ -125,17 +123,17 @@ function MyAccount() {
           )}
         </div>
       </Card>
-      <Card>
+      <Card className="w-100">
         <div className="bestallningar">
           <Card.Title>Tidigare Beställningar</Card.Title>
-          <Table striped bordered hover>
+          <Table striped bordered hover responsive>
             <thead>
               <tr>
                 <th>Order ID</th>
                 <th>Datum</th>
                 <th>Totalt</th>
                 <th>Status</th>
-                <th>Produkt</th> 
+                <th>Produkt</th>
               </tr>
             </thead>
             <tbody>
@@ -151,14 +149,14 @@ function MyAccount() {
                         {item.name}
                       </div>
                     ))}
-                  </td> {/* Visar produkt namn */}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </Table>
         </div>
       </Card>
-    </div>
+    </Container>
   );
 }
 
