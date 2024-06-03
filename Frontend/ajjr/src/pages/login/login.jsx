@@ -11,7 +11,7 @@ function LoginPage() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    fetch("/api/auth/login", {
+    fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/login", {
       method: "POST",
       mode: "cors",
       headers: {
