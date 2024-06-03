@@ -13,7 +13,7 @@ function LoginPage() {
     event.preventDefault();
     fetch("http://localhost:3000/api/auth/login", {
       method: "POST",
-      mode: "cors",
+      /* mode: "cors", */
       headers: {
         "Content-Type": "application/json",
       },
