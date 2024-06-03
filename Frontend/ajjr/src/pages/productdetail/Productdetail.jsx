@@ -4,12 +4,16 @@ import Card from "../../components/card/Card";
 import ProductGrid from "../../components/productgrid/ProductGrid";
 import "../../components/card/card.css";
 import "../../components/productgrid/productgrid.css";
+import product8 from "../../images/product8.png"
+import product9 from "../../images/product9.png"
+import porduct12 from "../../images/product12.png"
+import product14 from "../../images/product14.png"
 
 const images = [
-    { src: "/src/images/product8.jpg", alt: "First slide" },
-    { src: "/src/images/product9.jpg", alt: "Second slide" },
-    { src: "/src/images/product12.jpg", alt: "Third slide" },
-    { src: "/src/images/product14.jpg", alt: "Fourth slide" },
+    { src: { product8 }, alt: "First slide" },
+    { src: { product9 }, alt: "Second slide" },
+    { src: { porduct12 }, alt: "Third slide" },
+    { src: { product14 }, alt: "Fourth slide" },
 ];
 
 const Productdetail = () => {
