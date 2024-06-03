@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 const authenticateJWT = (req, res, next) => {
-  console.log(req.cookies);
+  console.log("Cookies: ", req.cookies);
   const token = req.cookies.jwt_token;
 
   if (!token) {
@@ -11,6 +11,7 @@ const authenticateJWT = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("Decoded JWT: ", decoded);
 
     req.user = decoded;
 

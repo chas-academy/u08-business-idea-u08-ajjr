@@ -1,4 +1,3 @@
-
 const express = require("express");
 const router = express.Router();
 const Order = require("../models/order.model");
@@ -25,7 +24,6 @@ router.post("/", async (req, res) => {
         name: item.name,
         price: item.price,
         quantity: item.quantity,
-       
       })),
       total,
       customer: { name, email, address, mobile },
@@ -37,6 +35,7 @@ router.post("/", async (req, res) => {
     await newOrder.save();
     res.status(201).json({ message: "Order submitted successfully." });
   } catch (error) {
+    console.error("Error submitting order:", error);
     res.status(500).json({ message: "Failed to submit order.", error });
   }
 });
@@ -44,9 +43,11 @@ router.post("/", async (req, res) => {
 // Fetch user's orders
 router.get("/", authenticateJWT, async (req, res) => {
   try {
-    const orders = await Order.find({ "customer.email": req.user.userEmail }); // this was the problem req.user.userEmailAnvänd userEmail från JWT
+    console.log("User Email from JWT: ", req.user.userEmail);
+    const orders = await Order.find({ "customer.email": req.user.userEmail });
     res.json(orders);
   } catch (err) {
+    console.error("Error fetching orders:", err);
     res.status(500).json({ msg: "Server error" });
   }
 });

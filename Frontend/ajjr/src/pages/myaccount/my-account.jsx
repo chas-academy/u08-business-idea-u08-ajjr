@@ -19,9 +19,12 @@ function MyAccount() {
 
   const fetchOrders = async () => {
     try {
+      const token = localStorage.getItem("token");
+      console.log("JWT Token: ", token);
+
       const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/orders", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
       });

@@ -1,4 +1,3 @@
-
 const Order = require('../models/order.model');
 const User = require('../models/user');
 
@@ -6,9 +5,11 @@ const User = require('../models/user');
 const getOrders = async (req, res) => {
   try {
     const userId = req.user._id;
+    console.log("Fetching orders for user ID:", userId);
     const orders = await Order.find({ userId }).populate('items.productId');
     res.status(200).json(orders);
   } catch (err) {
+    console.error("Error fetching orders:", err);
     res.status(500).json({ error: 'Failed to fetch orders' });
   }
 };
@@ -31,6 +32,7 @@ const createOrder = async (req, res) => {
     const savedOrder = await newOrder.save();
     res.status(201).json(savedOrder);
   } catch (err) {
+    console.error("Error creating order:", err);
     res.status(500).json({ error: 'Failed to create order' });
   }
 };
