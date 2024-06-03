@@ -62,10 +62,12 @@ const mongoUri =
 
 const app = express();
 
+app.use(express.static("uploads"))
+
 // Tillåt alla domäner att göra förfrågningar
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://ajjr.netlify.app/"],
     credentials: true,
   })
 );
