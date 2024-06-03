@@ -115,7 +115,7 @@ const Perfumes = () => {
                 <div className="card product-card">
                   <Link to="/productdetail">
                     <img
-                      src={'http://localhost:3000/' + product.image}
+                      src={'https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/' + product.image}
                       className="card-img-top"
                       alt={product.name}
                     />
