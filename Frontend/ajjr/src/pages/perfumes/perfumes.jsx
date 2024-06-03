@@ -204,7 +204,7 @@
 // };
 
 // export default Perfumes;
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './perfumes.css';
 import product1 from "../../images/product1.jpg";
@@ -229,31 +229,58 @@ import testers from "../../images/testers.jpg";
 import { Link, useOutletContext } from "react-router-dom";
 
 const Perfumes = () => {
+
+  const [products, getProducts] = useState([]);
   const { addToCart } = useOutletContext();
   const [activeFilter, setActiveFilter] = useState(null);
 
-  const products = [
-    { id: 1, name: 'Victory', image: product1, price: 120 },
-    { id: 2, name: 'The Don', image: product2, price: 120 },
-    { id: 3, name: 'Empire', image: product3, price: 120 },
-    { id: 4, name: 'Nuit Sombre', image: product4, price: 120 },
-    { id: 5, name: 'Vanilla Silk', image: product5, price: 120 },
-    { id: 6, name: 'La Coquille', image: product6, price: 120 },
-    { id: 7, name: 'Preziosa', image: product1, price: 120 },
-    { id: 8, name: 'Aurora', image: product2, price: 120 },
-    { id: 9, name: 'Doux Reve', image: product3, price: 120 },
-    { id: 10, name: 'Sweet Scent', image: product4, price: 120 },
-    { id: 11, name: 'Golden Dust', image: product5, price: 120 },
-    { id: 12, name: 'Madawi', image: product6, price: 120 },
-    { id: 13, name: 'Rouge', image: product1, price: 120 },
-    { id: 14, name: 'Coco Sand', image: product2, price: 120 },
-    { id: 15, name: 'Desert Tonka', image: product3, price: 120 },
-    { id: 16, name: 'Madera Oud', image: product4, price: 150 },
-    { id: 17, name: 'Dahabi Oud', image: product5, price: 150 },
-    { id: 18, name: 'Ombre Oud', image: product6, price: 150 },
-    { id: 19, name: 'Musk Al Shuyukh', image: product1, price: 150 },
-    { id: 20, name: 'Secret Musk', image: product2, price: 150 },
-  ];
+  /*  const products = [
+     { id: 1, name: 'Victory', image: product1, price: 120 },
+     { id: 2, name: 'The Don', image: product2, price: 120 },
+     { id: 3, name: 'Empire', image: product3, price: 120 },
+     { id: 4, name: 'Nuit Sombre', image: product4, price: 120 },
+     { id: 5, name: 'Vanilla Silk', image: product5, price: 120 },
+     { id: 6, name: 'La Coquille', image: product6, price: 120 },
+     { id: 7, name: 'Preziosa', image: product1, price: 120 },
+     { id: 8, name: 'Aurora', image: product2, price: 120 },
+     { id: 9, name: 'Doux Reve', image: product3, price: 120 },
+     { id: 10, name: 'Sweet Scent', image: product4, price: 120 },
+     { id: 11, name: 'Golden Dust', image: product5, price: 120 },
+     { id: 12, name: 'Madawi', image: product6, price: 120 },
+     { id: 13, name: 'Rouge', image: product1, price: 120 },
+     { id: 14, name: 'Coco Sand', image: product2, price: 120 },
+     { id: 15, name: 'Desert Tonka', image: product3, price: 120 },
+     { id: 16, name: 'Madera Oud', image: product4, price: 150 },
+     { id: 17, name: 'Dahabi Oud', image: product5, price: 150 },
+     { id: 18, name: 'Ombre Oud', image: product6, price: 150 },
+     { id: 19, name: 'Musk Al Shuyukh', image: product1, price: 150 },
+     { id: 20, name: 'Secret Musk', image: product2, price: 150 },
+   ]; */
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/api/products", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use JWT if applicable
+        },
+      });
+      const data = await response.json();
+
+      if (Array.isArray(data)) {
+        getProducts(data);
+      } else {
+        getProducts([]);
+        console.error("Fetched orders are not an array:", data);
+      }
+    } catch (err) {
+      console.error("Failed to fetch orders:", err);
+      getProducts([]);
+    }
+  };
 
   const tester = [
     { id: 1, name: 'Tester', image: testers, price: 40 },
@@ -313,15 +340,25 @@ const Perfumes = () => {
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
             {products.map((product) => (
 
-              <div className="col" key={product.id}>
+              <div className="col" key={product._id}>
                 <div className="card product-card">
+                  {/*   <Link to="/productdetail">
+                     <img
+                      src={product.image}
+                      className="card-img-top"
+                      alt={product.name}
+                    /> 
+                  </Link> */}
+
                   <Link to="/productdetail">
                     <img
-                      src={product.image}
+                      src={'http://localhost:3000/' + product.image}
                       className="card-img-top"
                       alt={product.name}
                     />
                   </Link>
+
+
                   <div className="card-body">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">{product.price} SEK</p>

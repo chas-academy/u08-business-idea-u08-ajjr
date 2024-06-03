@@ -67,6 +67,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
+  console.log(email, password);
   try {
     const user = await User.findOne({ email });
     if (!user) {
@@ -79,17 +80,17 @@ router.post("/login", async (req, res) => {
     }
 
     const token = jwt.sign(
-        {
-            userEmail: user.email,
-            userRole: user.role, // Include the user role in the token
-            
-        },
-        process.env.JWT_SECRET,
-        { expiresIn: "24h" }
+      {
+        userEmail: user.email,
+        userRole: user.role, // Include the user role in the token
+
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "24h" }
     );
 
     res.cookie("jwt_token", token, {
-        httpOnly:true,
+      httpOnly: true,
     }).json({ msg: "Du är inloggad", role: user.role });
   } catch (err) {
     res.status(500).json({ msg: "Serverfel" });
@@ -99,9 +100,9 @@ router.post("/login", async (req, res) => {
 
 
 router.post("/logout", (req, res) => {
-    res.cookie("jwt_token", "", { expires: new Date(0) });
+  res.cookie("jwt_token", "", { expires: new Date(0) });
 
-    res.status(200).json({ msg: "Du är utloggad" });
+  res.status(200).json({ msg: "Du är utloggad" });
 });
 
 
@@ -110,23 +111,23 @@ router.post("/logout", (req, res) => {
 
 
 router.get("/orders", async (req, res) => {
-    // Detta är en exempelmetod på orderstruktur
-    const orders = [
-      {
-        id: "123",
-        date: new Date(),
-        total: 299,
-        status: "Levererad",
-      },
-      {
-        id: "456",
-        date: new Date(),
-        total: 499,
-        status: "Under behandling",
-      },
-    ];
-    res.json(orders);
-  });
+  // Detta är en exempelmetod på orderstruktur
+  const orders = [
+    {
+      id: "123",
+      date: new Date(),
+      total: 299,
+      status: "Levererad",
+    },
+    {
+      id: "456",
+      date: new Date(),
+      total: 499,
+      status: "Under behandling",
+    },
+  ];
+  res.json(orders);
+});
 
 
 module.exports = router;

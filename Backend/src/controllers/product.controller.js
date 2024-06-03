@@ -16,9 +16,10 @@ const getProducts = async (req, res) => {
 // Get a single product    
 const getProduct = async (req, res) => {
   try {
-    const { id } = req.params;
-    const product = await Product.findById(id);
-    res.status(200).json(product);
+    const productId = req.product._id;
+    const products = await Product.find({ productId }).populate('items.productId');
+    console.log(products);
+    res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
