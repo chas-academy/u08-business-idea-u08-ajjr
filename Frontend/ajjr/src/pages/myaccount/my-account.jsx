@@ -48,7 +48,7 @@ function MyAccount() {
     }
     try {
       const response = await fetch(
-        "http://localhost:3000/api/auth/reset-password",
+        "https://u08-business-idea-u08-ajjr-39gd.onrender.com/auth/reset-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

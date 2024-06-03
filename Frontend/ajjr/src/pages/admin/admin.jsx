@@ -44,7 +44,7 @@ function AdminPage() {
       console.log(pair[0] + ', ' + pair[1]);
     } */
     if (product.name && product.description && product.category && product.price && product.topNotes && product.middleNotes && product.baseNotes && product.quantity) {
-      fetch("http://localhost:3000/api/products", {
+      fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com//api/products", {
         method: "post",
         mode: "cors",
         /*  headers: {

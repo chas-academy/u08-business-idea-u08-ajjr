@@ -263,7 +263,7 @@ const Perfumes = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/products", {
+      const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/products", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`, // Use JWT if applicable
         },

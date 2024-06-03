@@ -46,7 +46,7 @@ function RegisterPage() {
   const registerUser = async (userData) => {
     console.log("Försöker registrera användare:", userData);
     try {
-      const response = await fetch("http://localhost:3000/api/auth/register", {
+      const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
