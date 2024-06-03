@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container, Form, Button, Table, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./my-account.css";
-
 function MyAccount() {
   const [orders, setOrders] = useState([]);
   const [email, setEmail] = useState("");
@@ -12,29 +11,23 @@ function MyAccount() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showChangePassword, setShowChangePassword] = useState(false);
-
   useEffect(() => {
     fetchOrders();
   }, []);
-
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("No token found in localStorage");
-      }
       console.log("JWT Token: ", token);
-  
+
       const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/orders", {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
         },
         credentials: "include",
       });
       const data = await response.json();
       console.log("orderdata", data);
-  
+
       if (Array.isArray(data)) {
         setOrders(data);
       } else {
@@ -46,7 +39,6 @@ function MyAccount() {
       setOrders([]);
     }
   };
-
 
   const handleChangePassword = async (e) => {
     e.preventDefault();
@@ -71,10 +63,20 @@ function MyAccount() {
         setError(data.msg);
       }
     } catch (err) {
+
+    
+          
+            
+    
+
+          
+          Expand Down
+    
+    
+  
       setError("An error occurred while connecting to the server.");
     }
   };
-
   return (
     <Container className="mittkontocontainer">
       <h2 className="my-4">Mitt Konto</h2>
@@ -167,5 +169,4 @@ function MyAccount() {
     </Container>
   );
 }
-
 export default MyAccount;

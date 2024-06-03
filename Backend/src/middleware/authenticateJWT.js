@@ -3,7 +3,7 @@ const User = require("../models/user");
 
 const authenticateJWT = (req, res, next) => {
   console.log("Cookies: ", req.cookies);
-  const token = req.cookies.jwt_token || req.headers.authorization && req.headers.authorization.split(' ')[1]; // Update to support Authorization header
+  const token = req.cookies.jwt_token;
 
   if (!token) {
     return res.status(401).json({ msg: "Ingen token, auktorisation nekad" });
