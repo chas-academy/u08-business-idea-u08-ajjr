@@ -11,12 +11,11 @@ function LoginPage() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/api/auth/login", {
+    fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/login", {
       method: "POST",
-      /* mode: "cors", */
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "http://localhost:3000"
       },
       credentials: "include",
       body: JSON.stringify({ email, password }),
