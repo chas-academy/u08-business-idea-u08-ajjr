@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import fetchProductsByCategory from "../filtriering/FetchProductsByCategory";
 
-const ProductList = ({ category }) => {
+const ProductList = ({ match }) => {
+  const { category } = match.params;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
