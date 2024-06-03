@@ -268,6 +268,8 @@ const Checkout = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`, // Om du använder JWT
+          credentials: "include",
+          mode: "cors",
         },
         body: JSON.stringify({ 
           ...formData, 

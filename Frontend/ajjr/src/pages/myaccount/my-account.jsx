@@ -22,8 +22,10 @@ function MyAccount() {
       const response = await fetch("http://localhost:3000/api/orders", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
+          credentials: "include",
+          mode: "cors",
         },
-        credentials: "include",
+       
       });
       const data = await response.json();
       console.log("orderdata", data);
