@@ -21,7 +21,7 @@ const AboutUs = () => {
 
   return (
     <>
-   
+
       <Element>
         <Container className="vision my-4" id="omajjr">
           <Row className="row-aboutus ">
@@ -33,15 +33,10 @@ const AboutUs = () => {
               />
             </Col>
             <Col md={8}>
-             
+
               <h1>Om Ajjr</h1>
               <p className="visiontext">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
-                similique ea harum. Porro harum cum nam expedita culpa, ipsum at
-                impedit blanditiis illum iste nostrum quia vel nisi. Laborum at
-                accusantium nostrum cupiditate praesentium tempore qui vitae
-                neque? Fugiat aspernatur deleniti assumenda, at voluptates
-                eligendi adipisci et cum aut accusantium.
+                Ajjr grundades år 2020 av två bröder som såg en möjlighet att introducera oljeparfym på den svenska marknaden. Deras intresse och den stora efterfrågan de observerade i Sverige ledde till insikten att många vill köpa oljeparfym, men att det inte är lika lättillgängligt här som i arabvärlden. Oljeparfymer är mer koncentrerade än vanliga sprayparfymer, appliceras direkt på huden, tränger in bättre och har en längre hållbarhet. Våra flaskor är designade för att vara praktiska och portabla, så att du alltid kan ha med dig din signaturdoft, oavsett var du befinner dig. Vårt sortiment inkluderar dofter inspirerade av kända parfymer samt orientaliska dofter som musk och oud, allt för att erbjuda högkvalitativa parfymer till rimliga priser.
               </p>
             </Col>
           </Row>
@@ -61,13 +56,7 @@ const AboutUs = () => {
             <Col md={8} className="order-md-1">
               <h3>Vår vision</h3>
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptatem quasi ad explicabo laboriosam, harum consequuntur
-                ipsam itaque? Quaerat ut rerum itaque voluptate explicabo.
-                Reiciendis officia ducimus, hic itaque voluptate repudiandae
-                harum fugiat iste eaque at! Debitis aliquid provident corporis
-                nisi magni similique esse, atque sapiente consectetur ullam
-                repellat vero deserunt.
+                På Ajjr strävar vi efter att bli ledande inom oljeparfym på den svenska marknaden genom att erbjuda exklusiva och långvariga dofter som kombinerar traditionell parfymkonst med modern bekvämlighet. Vi vill sprida medvetenheten om oljeparfym och dess fördelar till en bredare publik i Sverige, och på så sätt öppna upp en ny värld av doftupplevelser för våra kunder. Vår vision är att varje person ska kunna bära sin signaturdoft med stolthet, var de än befinner sig, och känna sig unik och självsäker.
               </p>
             </Col>
           </Row>
@@ -87,12 +76,7 @@ const AboutUs = () => {
             <Col md={8}>
               <h3>Välgörenhet</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, dicta, ducimus totam nemo ad est voluptatum doloribus
-                blanditiis voluptates nihil amet ipsum obcaecati neque natus
-                iste quibusdam. Earum rem hic, molestiae inventore molestias
-                eveniet, eos quasi repellat ullam itaque nulla explicabo harum!
-                Provident temporibus fuga minus cumque esse eius maxime.
+                På Ajjr är vi engagerade i att ge tillbaka till samhället. Därför donerar vi 10% av våra vinster till välgörenhet. Vi tror starkt på att företag har en viktig roll i att göra världen till en bättre plats och att varje bidrag, stort som smått, kan göra skillnad. Genom våra donationer vill vi stödja olika välgörenhetsorganisationer och projekt som arbetar för att förbättra livet för människor i nöd, både lokalt och globalt.
               </p>
             </Col>
           </Row>
@@ -123,27 +107,22 @@ const AboutUs = () => {
           </Row>
         </Container> */}
         <Container className="sammarbeten my-4" id="sammarbeten">
-    <Row className="row-aboutus">
-        <Col md={4} className="order-md-2 order-1">
-            <img
+          <Row className="row-aboutus">
+            <Col md={4} className="order-md-2 order-1">
+              <img
                 src="src/images/holdingperfume.jpg"
                 alt="AboutUs-collaborations"
                 className="aboutusimg"
-            />
-        </Col>
-        <Col md={8} className="order-md-1 order-2">
-            <h3>Sammarbeten</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, dicta, ducimus totam nemo ad est voluptatum doloribus
-                blanditiis voluptates nihil amet ipsum obcaecati neque natus
-                iste quibusdam. Earum rem hic, molestiae inventore molestias
-                eveniet, eos quasi repellat ullam itaque nulla explicabo harum!
-                Provident temporibus fuga minus cumque esse eius maxime.
-            </p>
-        </Col>
-    </Row>
-</Container>
+              />
+            </Col>
+            <Col md={8} className="order-md-1 order-2">
+              <h3>Sammarbeten</h3>
+              <p>
+                Ajjr värdesätter samarbeten och ser dem som en nyckel till att nå ut till fler människor och skapa en stark gemenskap kring våra produkter. Vi arbetar aktivt med influencers och andra företag genom tävlingar, giveaways, rabattkoder och liknande kampanjer. Dessa samarbeten gör det möjligt för oss att erbjuda våra kunder spännande möjligheter och förmånliga erbjudanden, samtidigt som vi stärker vår närvaro och sprider kunskapen om oljeparfym. Vi ser fram emot att fortsätta utveckla kreativa och givande partnerskap i framtiden.
+              </p>
+            </Col>
+          </Row>
+        </Container>
       </Element>
 
       <Element>
