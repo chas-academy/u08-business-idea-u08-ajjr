@@ -4,10 +4,10 @@ import Card from "../../components/card/Card";
 import ProductGrid from "../../components/productgrid/ProductGrid";
 import "../../components/card/card.css";
 import "../../components/productgrid/productgrid.css";
-import product8 from "../../images/product8.png"
-import product9 from "../../images/product9.png"
-import porduct12 from "../../images/product12.png"
-import product14 from "../../images/product14.png"
+import product8 from "../../images/product8.jpg"
+import product9 from "../../images/product9.jpg"
+import porduct12 from "../../images/product12.jpg"
+import product14 from "../../images/product14.jpg"
 
 const images = [
     { src: { product8 }, alt: "First slide" },

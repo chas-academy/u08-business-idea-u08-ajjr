@@ -1,9 +1,9 @@
 import React from "react";
 import "../productgrid/productgrid.css";
-import product1 from "../../images/product1.png"
-import product2 from "../../images/product2.png"
-import product3 from "../../images/product3.png"
-import product4 from "../../images/product4.png"
+import product1 from "../../images/product1.jpg"
+import product2 from "../../images/product2.jpg"
+import product3 from "../../images/product3.jpg"
+import product4 from "../../images/product4.jpg"
 
 const ProductGrid = () => {
     const products = [
