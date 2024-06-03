@@ -65,7 +65,6 @@ router.post("/register", async (req, res) => {
 
 // Logga in en användare
 
-
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -82,6 +81,8 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
         {
             userEmail: user.email,
+            userRole: user.role, // Include the user role in the token
+            
         },
         process.env.JWT_SECRET,
         { expiresIn: "24h" }
@@ -89,7 +90,7 @@ router.post("/login", async (req, res) => {
 
     res.cookie("jwt_token", token, {
         httpOnly:true,
-    }).json({ msg: "Du är inloggad" });
+    }).json({ msg: "Du är inloggad", role: user.role });
   } catch (err) {
     res.status(500).json({ msg: "Serverfel" });
   }
