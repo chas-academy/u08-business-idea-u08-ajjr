@@ -9,39 +9,30 @@ function LoginPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/login", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.msg === "Du är inloggad") {
-          localStorage.setItem("isLoggedIn", true);
-          localStorage.setItem("userRole", data.role);
-          setSuccess(data.msg);
-          setError("");
-          if (data.role === "admin") {
-            window.location.href = "/admin";
-          } else {
-            window.location.href = "/";  // Redirect to home page for non admin
-          }
-        } else {
-          setError(data.msg);
-          setSuccess("");
-        }
-      })
-      .catch(() => {
-        setError("Ett fel inträffade vid anslutning till servern.");
-        setSuccess("");
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
       });
+  
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.setItem("token", data.token);
+        console.log("Token stored successfully:", data.token);
+      } else {
+        console.error("Login failed:", data.msg);
+      }
+    } catch (err) {
+      console.error("An error occurred during login:", err);
+    }
   };
+  
+
+
 
   const handleResetPassword = async (event) => {
     event.preventDefault();

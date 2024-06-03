@@ -20,17 +20,21 @@ function MyAccount() {
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("No token found in localStorage");
+      }
       console.log("JWT Token: ", token);
-
+  
       const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/orders", {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
         credentials: "include",
       });
       const data = await response.json();
       console.log("orderdata", data);
-
+  
       if (Array.isArray(data)) {
         setOrders(data);
       } else {
@@ -42,6 +46,7 @@ function MyAccount() {
       setOrders([]);
     }
   };
+
 
   const handleChangePassword = async (e) => {
     e.preventDefault();
