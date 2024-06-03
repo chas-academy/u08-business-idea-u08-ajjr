@@ -4,6 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { Element } from "react-scroll";
 import descriptionimg from "../../images/descriptionimg.png"
+import purseimg from "../../images/purseimg.png"
+import produktpageimg from "../../images/produktpageimg.png"
+import holdingperfume from "../../images/holdingperfume.png"
 
 const AboutUs = () => {
   const location = useLocation();
@@ -49,7 +52,7 @@ const AboutUs = () => {
           <Row className="row-aboutus ">
             <Col md={4} className="order-md-2">
               <img
-                src="src/images/purseimg.JPG"
+                src={purseimg}
                 alt="AboutUs-history"
                 className="aboutusimg"
               />
@@ -69,7 +72,7 @@ const AboutUs = () => {
           <Row className="row-aboutus ">
             <Col md={4}>
               <img
-                src="src/images/produktpageimg.JPG"
+                src={produktpageimg}
                 alt="AboutUs-charity"
                 className="aboutusimg"
               />
@@ -111,7 +114,7 @@ const AboutUs = () => {
           <Row className="row-aboutus">
             <Col md={4} className="order-md-2 order-1">
               <img
-                src="src/images/holdingperfume.jpg"
+                src={holdingperfume}
                 alt="AboutUs-collaborations"
                 className="aboutusimg"
               />

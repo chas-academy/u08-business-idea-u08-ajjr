@@ -1,12 +1,16 @@
 import React from "react";
 import "../productgrid/productgrid.css";
+import product1 from "../../images/product1.png"
+import product2 from "../../images/product2.png"
+import product3 from "../../images/product3.png"
+import product4 from "../../images/product4.png"
 
 const ProductGrid = () => {
     const products = [
-        { src: "src/images/product1.jpg", title: "Victory" },
-        { src: "src/images/product2.jpg", title: "Victory" },
-        { src: "src/images/product3.jpg", title: "Victory" },
-        { src: "src/images/product4.jpg", title: "Victory" },
+        { src: { product1 }, title: "Victory" },
+        { src: { product2 }, title: "The Don" },
+        { src: { product3 }, title: "Nuit Sombre" },
+        { src: { product4 }, title: "Empire" },
     ];
 
     return (
