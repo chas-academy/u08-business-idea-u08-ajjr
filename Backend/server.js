@@ -67,10 +67,15 @@ app.use(express.static("uploads"))
 // Tillåt alla domäner att göra förfrågningar
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://ajjr.netlify.app/"],
+    origin: "*",
     credentials: true,
   })
 );
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
 
 app.use(cookieParser());
 // Middleware för att hantera JSON-data och urlencoded data
