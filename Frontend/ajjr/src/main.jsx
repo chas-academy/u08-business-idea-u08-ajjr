@@ -23,6 +23,7 @@ import CustomerService from "./pages/customerservice/customerservice.jsx";
 import Productdetail from "./pages/productdetail/Productdetail.jsx";
 import Admin from "./pages/admin/admin.jsx";
 import MyAccount from "./pages/myaccount/my-account.jsx";
+import AdminRoute from "./components/adminroutes/AdminRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -73,7 +74,11 @@ const router = createBrowserRouter([
       },
       {
         path: "admin",
-        element: <Admin></Admin>,
+        element: (
+          <AdminRoute>
+            <Admin />
+          </AdminRoute>
+        ), // Använd AdminRoute här
       },
       {
         path: "myaccount",

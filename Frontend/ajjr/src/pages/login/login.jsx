@@ -13,10 +13,9 @@ function LoginPage() {
     event.preventDefault();
     fetch("http://localhost:3000/api/auth/login", {
       method: "POST",
-      mode:"cors",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
-     
       },
       credentials: "include",
       body: JSON.stringify({ email, password }),
@@ -25,9 +24,14 @@ function LoginPage() {
       .then((data) => {
         if (data.msg === "Du är inloggad") {
           localStorage.setItem("isLoggedIn", true);
+          localStorage.setItem("userRole", data.role);
           setSuccess(data.msg);
           setError("");
-       window.location.href = "/"; // Redirect to home page
+          if (data.role === "admin") {
+            window.location.href = "/admin";
+          } else {
+            window.location.href = "/";  // Redirect to home page for non admin
+          }
         } else {
           setError(data.msg);
           setSuccess("");
