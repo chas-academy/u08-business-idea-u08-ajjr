@@ -263,7 +263,7 @@ const Checkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/orders", {
+      const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
