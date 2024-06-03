@@ -4,9 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { Element } from "react-scroll";
 import descriptionimg from "../../images/descriptionimg.png"
-import purseimg from "../../images/purseimg.png"
-import produktpageimg from "../../images/produktpageimg.png"
-import holdingperfume from "../../images/holdingperfume.png"
+import purseimg from "../../images/purseimg.jpg"
+import produktpageimg from "../../images/produktpageimg.jpg"
+import holdingperfume from "../../images/holdingperfume.jpg"
 
 const AboutUs = () => {
   const location = useLocation();
