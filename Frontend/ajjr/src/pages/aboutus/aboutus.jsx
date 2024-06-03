@@ -3,6 +3,7 @@ import "./aboutus.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { Element } from "react-scroll";
+import descriptionimg from "../../images/descriptionimg.png"
 
 const AboutUs = () => {
   const location = useLocation();
@@ -27,7 +28,7 @@ const AboutUs = () => {
           <Row className="row-aboutus ">
             <Col md={4}>
               <img
-                src="src/images/descriptionimg.png"
+                src={descriptionimg}
                 alt="AboutUs-vision"
                 className="aboutusimg"
               />
