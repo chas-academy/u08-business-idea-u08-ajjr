@@ -45,8 +45,6 @@
 // // Starta servern
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -59,23 +57,25 @@ require("dotenv").config(); // Importera och konfigurera dotenv
 const mongoUri =
   process.env.MONGODB_URI || "mongodb://localhost:27017/ajjrofficial";
 
-
 const app = express();
 
-app.use(express.static("uploads"))
+app.use(express.static("uploads"));
 
 // Tillåt alla domäner att göra förfrågningar
 app.use(
   cors({
-    origin: "https://ajjr.netlify.app",
+    origin: process.env.FRONTEND_URL ?? "*",
     credentials: true,
   })
 );
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://ajjr.netlify.app");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL ?? "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
-})
+});
 
 app.use(cookieParser());
 // Middleware för att hantera JSON-data och urlencoded data

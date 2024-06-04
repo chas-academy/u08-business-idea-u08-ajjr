@@ -11,7 +11,7 @@ function LoginPage() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/login", {
+    fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -30,7 +30,7 @@ function LoginPage() {
           if (data.role === "admin") {
             window.location.href = "/admin";
           } else {
-            window.location.href = "/";  // Redirect to home page for non admin
+            window.location.href = "/"; // Redirect to home page for non admin
           }
         } else {
           setError(data.msg);
@@ -51,7 +51,7 @@ function LoginPage() {
     }
     try {
       const response = await fetch(
-        "http://localhost:3000/api/auth/reset-password",
+        `${import.meta.env.VITE_API_URL}/api/auth/reset-password`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
