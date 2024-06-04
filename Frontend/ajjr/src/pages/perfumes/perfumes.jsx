@@ -80,85 +80,117 @@ const Perfumes = () => {
   ];
 
   return (
-    <div className="m-0 p-0 test">
-      <div className="mb-4">
-        <img src={product14} alt="Landing Hero" className="img-fluid" />
-      </div>
-
-      <div className="perfumes-page">
-        <div className="filter-section">
-          <button
-            className={`filter-btn ${activeFilter === "herr" ? "active" : ""}`}
-            onClick={() => handleFilterClick("herr")}
-          >
-            Herr
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === "dam" ? "active" : ""}`}
-            onClick={() => handleFilterClick("dam")}
-          >
-            Dam
-          </button>
-          <button
-            className={`filter-btn ${
-              activeFilter === "unisex" ? "active" : ""
-            }`}
-            onClick={() => handleFilterClick("unisex")}
-          >
-            Unisex
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === "musk" ? "active" : ""}`}
-            onClick={() => handleFilterClick("musk")}
-          >
-            Musk
-          </button>
-          <button
-            className={`filter-btn ${activeFilter === "oud" ? "active" : ""}`}
-            onClick={() => handleFilterClick("oud")}
-          >
-            Oud
-          </button>
+    <>
+      <div className="m-0 p-0 test">
+        <div className="mb-4">
+          <img src={product14} alt="Landing Hero" className="img-fluid" />
         </div>
 
-        <div className="my-5">
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-            {filteredProducts.map((product) => (
-              <div className="col" key={product._id}>
-                <div className="card product-card">
-                  {/*   <Link to="/productdetail">
-                     <img
-                      src={product.image}
-                      className="card-img-top"
-                      alt={product.name}
-                    /> 
-                  </Link> */}
+        <div className="perfumes-page">
+          <div className="filter-section">
+            <button
+              className={`filter-btn ${
+                activeFilter === "herr" ? "active" : ""
+              }`}
+              onClick={() => handleFilterClick("herr")}
+            >
+              Herr
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === "dam" ? "active" : ""}`}
+              onClick={() => handleFilterClick("dam")}
+            >
+              Dam
+            </button>
+            <button
+              className={`filter-btn ${
+                activeFilter === "unisex" ? "active" : ""
+              }`}
+              onClick={() => handleFilterClick("unisex")}
+            >
+              Unisex
+            </button>
+            <button
+              className={`filter-btn ${
+                activeFilter === "musk" ? "active" : ""
+              }`}
+              onClick={() => handleFilterClick("musk")}
+            >
+              Musk
+            </button>
+            <button
+              className={`filter-btn ${activeFilter === "oud" ? "active" : ""}`}
+              onClick={() => handleFilterClick("oud")}
+            >
+              Oud
+            </button>
+          </div>
 
-                  <Link to="/productdetail">
-                    <img
-                      src={`${import.meta.env.VITE_API_URL}/` + product.image}
-                      className="card-img-top"
-                      alt={product.name}
-                    />
-                  </Link>
+          <div className="my-5">
+            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+              {filteredProducts.map((product) => (
+                <div className="col" key={product._id}>
+                  <div className="card product-card">
+                    {/*   <Link to="/productdetail">
+               <img
+                src={product.image}
+                className="card-img-top"
+                alt={product.name}
+              />
+            </Link> */}
 
-                  <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">{product.price} SEK</p>
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => addToCart(product)}
-                    >
-                      Lägg till i varukorg
-                    </button>
+                    <Link to="/productdetail">
+                      <img
+                        src={`${import.meta.env.VITE_API_URL}/` + product.image}
+                        className="card-img-top"
+                        alt={product.name}
+                      />
+                    </Link>
+
+                    <div className="card-body">
+                      <h5 className="card-title">{product.name}</h5>
+                      <p className="card-text">{product.price} SEK</p>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => addToCart(product)}
+                      >
+                        Lägg till i varukorg
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div classNme="my-5">
+        <h3 className="my-5">Testers</h3>
+        <div className="d-flex justify-center row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+          {tester.map((tester) => (
+            <div className="col" key={tester.id}>
+              <div className="card product-card">
+                <img
+                  src={tester.image}
+                  className="card-img-top"
+                  alt={tester.name}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{tester.name}</h5>
+                  <p className="card-text">{tester.price} SEK</p>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => addToCart(tester)}
+                  >
+                    Lägg till i varukorg
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 };
 
