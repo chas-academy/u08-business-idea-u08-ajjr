@@ -73,6 +73,12 @@ const Perfumes = () => {
     setSearchParams({ category: filterId });
   };
 
+  const tester = [
+    { id: 1, name: "Tester", image: testers, price: 40 },
+    { id: 2, name: "3 Testers", image: testers, price: 100 },
+    { id: 3, name: "5 Testers", image: testers, price: 150 },
+  ];
+
   return (
     <div className="m-0 p-0 test">
       <div className="mb-4">
