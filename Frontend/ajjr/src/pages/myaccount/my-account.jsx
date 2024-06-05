@@ -19,7 +19,7 @@ function MyAccount() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/orders", {
+      const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/orders", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
       
