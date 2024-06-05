@@ -67,12 +67,14 @@ app.use(express.static("uploads"))
 // Tillåt alla domäner att göra förfrågningar
 app.use(
   cors({
-    origin: "https://ajjr.netlify.app",
+    /* origin: "https://ajjr.netlify.app", */
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://ajjr.netlify.app");
+  /* res.header("Access-Control-Allow-Origin", "https://ajjr.netlify.app"); */
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 })
