@@ -36,26 +36,33 @@ function AdminPage() {
     console.log("Submitting product", product);
     alert("Information submitted. Check console for data.");
 
-    const formData = new FormData()
+    const formData = new FormData();
     for (const [key, value] of Object.entries(product)) {
-      formData.append(key, value)
+      formData.append(key, value);
     }
     /* for (let pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1]);
     } */
-    if (product.name && product.description && product.category && product.price && product.topNotes && product.middleNotes && product.baseNotes && product.quantity) {
-      fetch("http://localhost:3000/api/products", {
+    if (
+      product.name &&
+      product.description &&
+      product.category &&
+      product.price &&
+      product.topNotes &&
+      product.middleNotes &&
+      product.baseNotes &&
+      product.quantity
+    ) {
+      fetch(`${import.meta.env.VITE_API_URL}/api/products`, {
         method: "post",
         mode: "cors",
         /*  headers: {
            "Content-Type": "multipart/form-data"
          }, */
         body: formData,
-      })
+      });
     }
   };
-
-
 
   return (
     <div className="backgroundstyle">

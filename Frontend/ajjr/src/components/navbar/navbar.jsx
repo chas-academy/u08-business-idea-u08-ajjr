@@ -72,30 +72,46 @@ function Navigation() {
               Produkter
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/herr">
+            <NavDropdown.Item
+              as={Link}
+              onClick={closeNav}
+              to="produkter?category=herr"
+            >
               Herr
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/dam">
+            <NavDropdown.Item
+              as={Link}
+              onClick={closeNav}
+              to="produkter?category=dam"
+            >
               Dam
             </NavDropdown.Item>
             <NavDropdown.Item
               as={Link}
               onClick={closeNav}
-              to="produkter/unisex"
+              to="produkter?category=unisex"
             >
               Unisex
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/musk">
+            <NavDropdown.Item
+              as={Link}
+              onClick={closeNav}
+              to="produkter?category=musk"
+            >
               Musk
             </NavDropdown.Item>
-            <NavDropdown.Item as={Link} onClick={closeNav} to="produkter/oud">
+            <NavDropdown.Item
+              as={Link}
+              onClick={closeNav}
+              to="produkter?category=oud"
+            >
               Oud
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item
               as={Link}
               onClick={closeNav}
-              to="produkter/testers"
+              to="produkter?category=testers"
             >
               Testers
             </NavDropdown.Item>
