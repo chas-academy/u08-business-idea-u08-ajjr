@@ -27,9 +27,19 @@ function Navigation() {
   }
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(loggedIn);
+    const handleStorageChange = (event) => {
+      if (event.key === "isLoggedIn") {
+        setIsLoggedIn(event.newValue === "true");
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
+
 
   const handleLogout = () => {
     localStorage.setItem("isLoggedIn", false);
