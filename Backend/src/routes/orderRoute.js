@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
 });
 
 // Fetch user's orders
-router.get("/", authenticateJWT, async (req, res) => {
+router.get("/", async (req, res) => { //authenticateJWT
   try {
     const orders = await Order.find({ "customer.email": req.user.userEmail }); // this was the problem req.user.userEmailAnvänd userEmail från JWT
     res.json(orders);
