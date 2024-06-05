@@ -93,7 +93,7 @@ router.post("/login", async (req, res) => {
       httpOnly: true,
       sameSite: "lax",
       secure: true,
-    }).json({ msg: "Du är inloggad", role: user.role });
+    }).json({ msg: "Du är inloggad", role: user.role, token: token });
   } catch (err) {
     res.status(500).json({ msg: "Serverfel" });
   }
