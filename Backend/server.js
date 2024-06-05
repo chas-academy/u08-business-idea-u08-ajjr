@@ -64,12 +64,12 @@ app.use(express.static("uploads"));
 // Tillåt alla domäner att göra förfrågningar
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "*",
+    origin: "https://ajjr.netlify.app",
     credentials: true,
   })
 );
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", process.env.FRONTEND_URL ?? "*");
+  res.header("Access-Control-Allow-Origin", "https://ajjr.netlify.app");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"

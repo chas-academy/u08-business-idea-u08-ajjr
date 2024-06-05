@@ -53,7 +53,7 @@ function AdminPage() {
       product.baseNotes &&
       product.quantity
     ) {
-      fetch(`${import.meta.env.VITE_API_URL}/api/products`, {
+      fetch("http://localhost:3000/api/products", {
         method: "post",
         mode: "cors",
         /*  headers: {
