@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../../context/AuthContext"; // import AuthContext
 import "./login.css";
+
 function LoginPage() {
   const [isResettingPassword, setIsResettingPassword] = useState(false);
   const [email, setEmail] = useState("");
@@ -10,7 +12,8 @@ function LoginPage() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const navigate = useNavigate()
+  const { login } = useContext(AuthContext); // use AuthContext
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -27,7 +30,7 @@ function LoginPage() {
       .then((response) => response.json())
       .then((data) => {
         if (data.msg === "Du är inloggad") {
-          localStorage.setItem("isLoggedIn", true);
+          login(); // call login from context
           localStorage.setItem("userRole", data.role);
           setSuccess(data.msg);
           setError("");

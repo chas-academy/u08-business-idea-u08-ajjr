@@ -3,22 +3,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../navbar/navbar.css";
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import logoImg from "../../images/ajjrlogo.png";
-import {
-  Link,
-  NavLink,
-  Route,
-  Routes,
-  Outlet,
-  BrowserRouter,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext"; // import AuthContext
 
 function Navigation() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] =
-    useState(false);
+  const { isLoggedIn, logout } = useContext(AuthContext); // use AuthContext
+  const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] = useState(false);
   const [isNavDropdownOpenAbout, setIsNavDropdownOpenAbout] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -26,25 +18,8 @@ function Navigation() {
     setIsExpanded(false);
   }
 
-  useEffect(() => {
-    const handleStorageChange = (event) => {
-      if (event.key === "isLoggedIn") {
-        setIsLoggedIn(event.newValue === "true");
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
-
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", false);
-    setIsLoggedIn(false);
-    // Redirect to home page
+    logout();
     window.location.href = "/";
   };
 
@@ -194,26 +169,6 @@ function Navigation() {
               Kontakta oss
             </NavDropdown.Item>
           </NavDropdown>
-
-          {/* 
-          <Nav.Link
-            as={Link}
-            onClick={closeNav}
-            to="loggain"
-            a
-            className="nav-link-custom"
-          >
-            Logga in
-          </Nav.Link>
-          <Nav.Link
-            as={Link}
-            onClick={closeNav}
-            to="RegisterPage"
-            className="nav-link-custom"
-          >
-            Registrera dig
-          </Nav.Link>
- */}
 
           {isLoggedIn ? (
             <>

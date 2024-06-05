@@ -37,9 +37,11 @@ const App = () => {
   };
   return (
     <>
-      <Navigation></Navigation>
-      <Outlet context={{ cartItems, setCartItems, addToCart }} />
-      <Footer></Footer>
+      <AuthProvider>
+        <Navigation></Navigation>
+        <Outlet context={{ cartItems, setCartItems, addToCart }} />
+        <Footer></Footer>
+      </AuthProvider>
     </>
   );
 };
