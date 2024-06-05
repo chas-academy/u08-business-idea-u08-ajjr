@@ -24,9 +24,10 @@ function MyAccount() {
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            credentials: "include",
-            mode: "cors",
+
           },
+          credentials: "include",
+          mode: "cors",
         }
       );
       const data = await response.json();
