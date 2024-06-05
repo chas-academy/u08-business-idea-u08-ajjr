@@ -164,7 +164,7 @@ const Perfumes = () => {
           </div>
         </div>
       </div>
-      <div classNme="my-5">
+      <div className="my-5">
         <h3 className="my-5">Testers</h3>
         <div className="d-flex justify-center row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
           {tester.map((tester) => (
