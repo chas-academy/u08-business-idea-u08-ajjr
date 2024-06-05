@@ -14,6 +14,7 @@ import Home from "./pages/home/home";
 import AboutUs from "./pages/aboutus/aboutus";
 import { FaQq } from "react-icons/fa";
 import Navigation from "./components/navbar/navbar";
+import { AuthProvider } from "./context/AuthContext";
 
 const App = () => {
 
