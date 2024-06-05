@@ -19,13 +19,13 @@ function MyAccount() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/orders", {
+      const response = await fetch("https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/orders", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
-          credentials: "include",
-          mode: "cors",
+      
         },
-       
+        credentials: "include",
+        mode: "cors",
       });
       const data = await response.json();
       console.log("orderdata", data);
