@@ -66,6 +66,7 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL ?? "*",
     credentials: true,
+    exposedHeaders: "Set-Cookie",
   })
 );
 app.use(function (req, res, next) {
