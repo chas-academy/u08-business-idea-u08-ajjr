@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./login.css";
 function LoginPage() {
   const [isResettingPassword, setIsResettingPassword] = useState(false);
@@ -8,6 +9,8 @@ function LoginPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const navigate = useNavigate()
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -29,9 +32,9 @@ function LoginPage() {
           setSuccess(data.msg);
           setError("");
           if (data.role === "admin") {
-            window.location.href = "/admin";
+            navigate('/admin');
           } else {
-            window.location.href = "/"; // Redirect to home page for non admin
+            navigate('/') // Redirect to home page for non admin
           }
         } else {
           setError(data.msg);
