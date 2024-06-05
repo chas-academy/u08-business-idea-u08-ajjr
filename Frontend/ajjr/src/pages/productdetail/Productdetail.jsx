@@ -39,6 +39,12 @@ const Productdetail = () => {
                     />
                 </div>
             </div>
+            <button
+                className="btn btn-primary"
+                onClick={() => addToCart(product)}
+            >
+                Lägg till i varukorg
+            </button>
 
             <div className="container my-5">
                 <div className="text-center">
