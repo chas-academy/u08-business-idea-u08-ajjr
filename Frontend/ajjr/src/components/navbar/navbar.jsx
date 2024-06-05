@@ -68,7 +68,7 @@ function Navigation() {
             onMouseEnter={() => setIsNavDropdownOpenProduct(true)}
             onMouseLeave={() => setIsNavDropdownOpenProduct(false)}
           >
-            <NavDropdown.Item as={Link} to="produkter">
+            <NavDropdown.Item as={Link} to="produkter" onClick={closeNav}>
               Produkter
             </NavDropdown.Item>
             <NavDropdown.Divider />
@@ -130,6 +130,7 @@ function Navigation() {
               smooth={true}
               offset={-420}
               duration={500}
+              onClick={closeNav}
             >
               Om Ajjr
             </NavDropdown.Item>
@@ -140,6 +141,7 @@ function Navigation() {
               offset={-420}
               duration={500}
               to="aboutus#vision"
+              onClick={closeNav}
             >
               Vår Vision
             </NavDropdown.Item>
@@ -153,6 +155,7 @@ function Navigation() {
               offset={-220}
               duration={500}
               to="aboutus#valgorenhet"
+              onClick={closeNav}
             >
               Välgörenhet
             </NavDropdown.Item>
@@ -164,6 +167,7 @@ function Navigation() {
               offset={-220}
               duration={500}
               to="aboutus#sammarbeten"
+              onClick={closeNav}
             >
               Sammarbeten
             </NavDropdown.Item>
@@ -175,6 +179,7 @@ function Navigation() {
               offset={-220}
               duration={500}
               to="aboutus#kontakt"
+              onClick={closeNav}
             >
               Kontakta oss
             </NavDropdown.Item>
@@ -202,7 +207,7 @@ function Navigation() {
 
           {isLoggedIn ? (
             <>
-              <Nav.Link as={Link} to="/myaccount">
+              <Nav.Link as={Link} to="/myaccount" onClick={closeNav}>
                 Mitt konto
               </Nav.Link>
               <Nav.Link as={Link} to="/" onClick={handleLogout}>
@@ -211,10 +216,10 @@ function Navigation() {
             </>
           ) : (
             <>
-              <Nav.Link as={Link} to="/loggain">
+              <Nav.Link as={Link} to="/loggain" onClick={closeNav}>
                 Logga in
               </Nav.Link>
-              <Nav.Link as={Link} to="/registerpage">
+              <Nav.Link as={Link} to="/registerpage" onClick={closeNav}>
                 Registrera dig
               </Nav.Link>
             </>
