@@ -33,6 +33,7 @@ function LoginPage() {
         if (data.msg === "Du är inloggad") {
           login(); // call login from context
           localStorage.setItem("userRole", data.role);
+          localStorage.setItem("token", data.token)
           console.log(data)
           setSuccess(data.msg);
           setError("");
