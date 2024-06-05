@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 const authenticateJWT = (req, res, next) => {
-  console.log("this is the cookies",req.cookies);
-  const token = req.cookies.jwt_token;
+  console.log("this is the cookies", req.cookies);
+  const token = req.cookies.token;
 
   if (!token) {
     return res.status(401).json({ msg: "Ingen token, auktorisation nekad" });
