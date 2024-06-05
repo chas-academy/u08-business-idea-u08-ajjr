@@ -91,6 +91,7 @@ router.post("/login", async (req, res) => {
 
     res.cookie("jwt_token", token, {
       httpOnly: true,
+      sameSite: "none",
     }).json({ msg: "Du är inloggad", role: user.role });
   } catch (err) {
     res.status(500).json({ msg: "Serverfel" });
