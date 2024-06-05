@@ -11,6 +11,7 @@ function LoginPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [jwtToken, setJwtToken] = useState('');
 
   const { login } = useContext(AuthContext); // use AuthContext
   const navigate = useNavigate();
@@ -32,6 +33,18 @@ function LoginPage() {
         if (data.msg === "Du är inloggad") {
           login(); // call login from context
           localStorage.setItem("userRole", data.role);
+          const headers = response.headers;
+          const setCookieHeader = headers.get('Set-Cookie');
+          console.log(response)
+
+          if (setCookieHeader) {
+            const token = setCookieHeader
+              .split(';')
+              .find(part => part.trim().startsWith('jwt_token='))
+              .split('=')[1];
+            setJwtToken(token);
+            localStorage.setItem("token", jwtToken);
+          }
           setSuccess(data.msg);
           setError("");
           if (data.role === "admin") {
