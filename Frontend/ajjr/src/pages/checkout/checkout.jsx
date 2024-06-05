@@ -262,20 +262,23 @@ const Checkout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Om du använder JWT
-          credentials: "include",
-          mode: "cors",
-        },
-        body: JSON.stringify({
-          ...formData,
-          cartItems,
-          total: getTotalPrice(),
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/orders`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Om du använder JWT
+            credentials: "include",
+            mode: "cors",
+          },
+          body: JSON.stringify({
+            ...formData,
+            cartItems,
+            total: getTotalPrice(),
+          }),
+        }
+      );
       if (response.ok) {
         alert("Order submitted successfully.");
         setCartItems([]); // Clear the cart

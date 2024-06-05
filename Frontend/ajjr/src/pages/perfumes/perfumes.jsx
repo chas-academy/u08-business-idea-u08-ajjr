@@ -46,11 +46,14 @@ const Perfumes = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/products", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Use JWT if applicable
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/products`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Use JWT if applicable
+          },
+        }
+      );
       const data = await response.json();
 
       if (Array.isArray(data)) {
@@ -138,7 +141,7 @@ const Perfumes = () => {
 
                     <Link to="/productdetail">
                       <img
-                        src={"http://localhost:3000/" + product.image}
+                        src={`${import.meta.env.VITE_API_URL}/` + product.image}
                         className="card-img-top"
                         alt={product.name}
                       />

@@ -19,13 +19,16 @@ function MyAccount() {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/orders", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          credentials: "include",
-          mode: "cors",
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/orders`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            credentials: "include",
+            mode: "cors",
+          },
+        }
+      );
       const data = await response.json();
       console.log("orderdata", data);
 
@@ -49,7 +52,7 @@ function MyAccount() {
     }
     try {
       const response = await fetch(
-        "http://localhost:3000/api/auth/reset-password",
+        `${import.meta.env.VITE_API_URL}/api/auth/reset-password`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

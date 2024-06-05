@@ -11,18 +11,15 @@ function LoginPage() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    fetch(
-      "https://u08-business-idea-u08-ajjr-39gd.onrender.com/api/auth/login",
-      {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ email, password }),
-      }
-    )
+    fetch(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({ email, password }),
+    })
       .then((response) => response.json())
       .then((data) => {
         if (data.msg === "Du är inloggad") {
@@ -54,7 +51,7 @@ function LoginPage() {
     }
     try {
       const response = await fetch(
-        "http://localhost:3000/api/auth/reset-password",
+        `${import.meta.env.VITE_API_URL}/api/auth/reset-password`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
