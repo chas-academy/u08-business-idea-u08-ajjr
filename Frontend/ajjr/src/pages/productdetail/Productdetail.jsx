@@ -74,6 +74,7 @@ import product8 from "../../images/product8.jpg";
 import product9 from "../../images/product9.jpg";
 import product12 from "../../images/product12.jpg";
 import product14 from "../../images/product14.jpg";
+import { useOutletContext } from "react-router-dom";
 
 const images = [
   { src: product8, alt: "First slide" },
@@ -83,6 +84,7 @@ const images = [
 ];
 
 const Productdetail = () => {
+  const { addToCart } = useOutletContext();
   return (
     <div>
       <div className="text-center my-4">
@@ -105,7 +107,7 @@ const Productdetail = () => {
           />
         </div>
       </div>
-      <button className="btn btn-primary" onClick={() => addToCart(product)}>
+      <button className="btn btn-primary" onClick={() => addToCart(Productdetail)}>
         Lägg till i varukorg
       </button>
 
