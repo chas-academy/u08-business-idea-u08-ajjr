@@ -5,10 +5,10 @@ import "../navbar/navbar.css";
 import { useState, useContext } from "react";
 import logoImg from "../../images/ajjrlogo.png";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext"; // import AuthContext
+import { AuthContext } from "../../context/AuthContext"; 
 
 function Navigation() {
-  const { isLoggedIn, logout } = useContext(AuthContext); // use AuthContext
+  const { isLoggedIn, logout } = useContext(AuthContext); 
   const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] =
     useState(false);
   const [isNavDropdownOpenAbout, setIsNavDropdownOpenAbout] = useState(false);

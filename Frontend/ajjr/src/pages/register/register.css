@@ -3,7 +3,7 @@
 }
 
 .backgroundstyle {
-    /* background-image: url(".././../images/productajjr.jpg"); */
+
     background: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg')no-repeat center center fixed;
     height: 100vh;
     display: flex;

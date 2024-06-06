@@ -21,7 +21,7 @@ function RegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Kontrollera att alla fält är ifyllda
+
     if (
       !formData.email ||
       !formData.password ||
@@ -33,13 +33,13 @@ function RegisterPage() {
       return;
     }
 
-    // Kontrollera att lösenorden matchar
+  
     if (formData.password !== formData.confirmPassword) {
       alert("Lösenorden matchar inte.");
       return;
     }
 
-    // Anropa registreringsfunktionen
+
     registerUser(formData);
   };
 
