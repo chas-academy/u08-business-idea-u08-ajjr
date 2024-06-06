@@ -2,13 +2,13 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../navbar/navbar.css";
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import logoImg from "../../images/ajjrlogo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext"; // import AuthContext
 
 function Navigation() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const { isLoggedIn, logout } = useContext(AuthContext); // use AuthContext
   const [isNavDropdownOpenProduct, setIsNavDropdownOpenProduct] =
     useState(false);
   const [isNavDropdownOpenAbout, setIsNavDropdownOpenAbout] = useState(false);
@@ -18,15 +18,8 @@ function Navigation() {
     setIsExpanded(false);
   }
 
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(loggedIn);
-  }, []);
-
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", false);
-    setIsLoggedIn(false);
-    // Redirect to home page
+    logout();
     window.location.href = "/";
   };
 
@@ -60,7 +53,7 @@ function Navigation() {
             onMouseEnter={() => setIsNavDropdownOpenProduct(true)}
             onMouseLeave={() => setIsNavDropdownOpenProduct(false)}
           >
-            <NavDropdown.Item as={Link} to="produkter">
+            <NavDropdown.Item as={Link} to="produkter" onClick={closeNav}>
               Produkter
             </NavDropdown.Item>
             <NavDropdown.Divider />
@@ -122,6 +115,7 @@ function Navigation() {
               smooth={true}
               offset={-420}
               duration={500}
+              onClick={closeNav}
             >
               Om Ajjr
             </NavDropdown.Item>
@@ -132,6 +126,7 @@ function Navigation() {
               offset={-420}
               duration={500}
               to="aboutus#vision"
+              onClick={closeNav}
             >
               Vår Vision
             </NavDropdown.Item>
@@ -145,6 +140,7 @@ function Navigation() {
               offset={-220}
               duration={500}
               to="aboutus#valgorenhet"
+              onClick={closeNav}
             >
               Välgörenhet
             </NavDropdown.Item>
@@ -156,6 +152,7 @@ function Navigation() {
               offset={-220}
               duration={500}
               to="aboutus#sammarbeten"
+              onClick={closeNav}
             >
               Sammarbeten
             </NavDropdown.Item>
@@ -167,34 +164,15 @@ function Navigation() {
               offset={-220}
               duration={500}
               to="aboutus#kontakt"
+              onClick={closeNav}
             >
               Kontakta oss
             </NavDropdown.Item>
           </NavDropdown>
 
-          {/* 
-          <Nav.Link
-            as={Link}
-            onClick={closeNav}
-            to="loggain"
-            a
-            className="nav-link-custom"
-          >
-            Logga in
-          </Nav.Link>
-          <Nav.Link
-            as={Link}
-            onClick={closeNav}
-            to="RegisterPage"
-            className="nav-link-custom"
-          >
-            Registrera dig
-          </Nav.Link>
- */}
-
           {isLoggedIn ? (
             <>
-              <Nav.Link as={Link} to="/myaccount">
+              <Nav.Link as={Link} to="/myaccount" onClick={closeNav}>
                 Mitt konto
               </Nav.Link>
               <Nav.Link as={Link} to="/" onClick={handleLogout}>
@@ -203,10 +181,10 @@ function Navigation() {
             </>
           ) : (
             <>
-              <Nav.Link as={Link} to="/loggain">
+              <Nav.Link as={Link} to="/loggain" onClick={closeNav}>
                 Logga in
               </Nav.Link>
-              <Nav.Link as={Link} to="/registerpage">
+              <Nav.Link as={Link} to="/registerpage" onClick={closeNav}>
                 Registrera dig
               </Nav.Link>
             </>
