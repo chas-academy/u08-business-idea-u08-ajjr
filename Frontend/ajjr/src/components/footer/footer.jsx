@@ -1,4 +1,3 @@
-import React from "react";
 import { Col } from "react-bootstrap";
 import { GrInstagram } from "react-icons/gr";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -19,11 +18,11 @@ const linksData = {
     { label: "FAQ - vanliga frågor och svar", link: "/faq" },
   ],
   Produkter: [
-    { label: "Herr", link: "produkter/herr" },
-    { label: "Dam", link: "produkter/dam" },
-    { label: "Unisex", link: "produkter/unisex" },
-    { label: "Musk ", link: "produkter/musk" },
-    { label: "Oud", link: "produkter/Oud" },
+    { label: "Herr", link: "produkter?category=herr" },
+    { label: "Dam", link: "produkter?category=dam" },
+    { label: "Unisex", link: "produkter?category=unisex" },
+    { label: "Musk ", link: "produkter?category=musk" },
+    { label: "Oud", link: "produkter?category=oud" },
   ],
 };
 
@@ -55,7 +54,7 @@ const Footer = () => {
   return (
     <div className="container-fluid footer-custom">
       <div className="row">
-        {Object.entries(linksData).map(([title, links], index) => (
+        {Object.entries(linksData).map(([title, links]) => (
           <Col xs={12} sm={6} lg={3} key={title} className="footer-col">
             <h5>{title}</h5>
             <ul>

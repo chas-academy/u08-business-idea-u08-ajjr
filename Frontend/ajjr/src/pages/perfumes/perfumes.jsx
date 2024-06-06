@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./perfumes.css";
 import product14 from "../../images/product14.jpg";
@@ -10,23 +10,23 @@ const Perfumes = () => {
   const { addToCart } = useOutletContext();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [activeFilter, setActiveFilter] = useState(
-    searchParams.get("category")
-  );
+  const category = searchParams.get("category");
 
   useEffect(() => {
-    if (activeFilter) {
+    if (category) {
       setFilteredProducts(
-        products.filter((product) => product.category === activeFilter)
+        products.filter((product) => product.category === category)
       );
     } else {
       setFilteredProducts(products);
     }
-  }, [products, activeFilter]);
+  }, [products, category]);
 
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  console.log("category:", searchParams.get("category"));
 
   const fetchProducts = async () => {
     try {
@@ -53,7 +53,6 @@ const Perfumes = () => {
   };
 
   const handleFilterClick = (filterId = "") => {
-    setActiveFilter(filterId === activeFilter ? null : filterId);
     setSearchParams({ category: filterId });
   };
 
@@ -73,37 +72,31 @@ const Perfumes = () => {
         <div className="perfumes-page">
           <div className="filter-section">
             <button
-              className={`filter-btn ${
-                activeFilter === "herr" ? "active" : ""
-              }`}
+              className={`filter-btn ${category === "herr" ? "active" : ""}`}
               onClick={() => handleFilterClick("herr")}
             >
               Herr
             </button>
             <button
-              className={`filter-btn ${activeFilter === "dam" ? "active" : ""}`}
+              className={`filter-btn ${category === "dam" ? "active" : ""}`}
               onClick={() => handleFilterClick("dam")}
             >
               Dam
             </button>
             <button
-              className={`filter-btn ${
-                activeFilter === "unisex" ? "active" : ""
-              }`}
+              className={`filter-btn ${category === "unisex" ? "active" : ""}`}
               onClick={() => handleFilterClick("unisex")}
             >
               Unisex
             </button>
             <button
-              className={`filter-btn ${
-                activeFilter === "musk" ? "active" : ""
-              }`}
+              className={`filter-btn ${category === "musk" ? "active" : ""}`}
               onClick={() => handleFilterClick("musk")}
             >
               Musk
             </button>
             <button
-              className={`filter-btn ${activeFilter === "oud" ? "active" : ""}`}
+              className={`filter-btn ${category === "oud" ? "active" : ""}`}
               onClick={() => handleFilterClick("oud")}
             >
               Oud

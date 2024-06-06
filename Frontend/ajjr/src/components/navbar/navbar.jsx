@@ -1,18 +1,10 @@
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "../navbar/navbar.css";
 import { useEffect, useState } from "react";
 import logoImg from "../../images/ajjrlogo.png";
-import {
-  Link,
-  NavLink,
-  Route,
-  Routes,
-  Outlet,
-  BrowserRouter,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navigation() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
