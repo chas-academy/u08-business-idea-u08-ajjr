@@ -35,14 +35,6 @@ const router = createBrowserRouter([
       {
         path: "produkter",
         element: <Perfumes />,
-        // children: [
-        //   { path: "herr", element: <Perfumes /> },
-        //   { path: "dam", element: <Perfumes /> },
-        //   { path: "unisex", element: <Perfumes /> },
-        //   { path: "musk", element: <Perfumes /> },
-        //   { path: "oud", element: <Perfumes /> },
-        //   { path: "testers", element: <Perfumes /> },
-        // ],
       },
       {
         path: "productdetail",

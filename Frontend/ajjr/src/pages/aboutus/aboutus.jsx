@@ -88,28 +88,6 @@ const AboutUs = () => {
       </Element>
 
       <Element>
-        {/* <Container className="sammarbeten my-4" id="sammarbeten">
-          <Row className="row-aboutus ">
-            <Col md={8}>
-              <h3>Sammarbeten</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aliquam, dicta, ducimus totam nemo ad est voluptatum doloribus
-                blanditiis voluptates nihil amet ipsum obcaecati neque natus
-                iste quibusdam. Earum rem hic, molestiae inventore molestias
-                eveniet, eos quasi repellat ullam itaque nulla explicabo harum!
-                Provident temporibus fuga minus cumque esse eius maxime.
-              </p>
-            </Col>
-            <Col md={4}>
-              <img
-                src="src/images/holdingperfume.jpg"
-                alt="AboutUs-collaborations"
-                className="aboutusimg"
-              />
-            </Col>
-          </Row>
-        </Container> */}
         <Container className="sammarbeten my-4" id="sammarbeten">
           <Row className="row-aboutus">
             <Col md={4} className="order-md-2 order-1">

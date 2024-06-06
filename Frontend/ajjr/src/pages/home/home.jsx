@@ -24,15 +24,6 @@ import {
 } from "react-router-dom";
 
 function Home() {
-  //Förberedelse för att visa cards från backend
-  // const [products, setProducts] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("api/products/bestsellers")
-  //     .then((response) => response.json())
-  //     .then((data) => setProducts(data))
-  //     .catch((error) => console.error("Error:", error));
-  // }, []);
 
   const carouselRef1 = useRef(null);
   const carouselRef2 = useRef(null);
@@ -50,19 +41,6 @@ function Home() {
     { id: 9, name: "Golden Dust", price: "120 kr", image: product3 },
     { id: 10, name: "Coco Sand", price: "120 kr", image: product4 },
   ];
-
-  /* const products = [
-    { id: 1, name: 'Produkt 1', image: 'https://via.placeholder.com/150' },
-    { id: 2, name: 'Produkt 2', image: 'https://via.placeholder.com/150' },
-    { id: 3, name: 'Produkt 3', image: 'https://via.placeholder.com/150' },
-    { id: 4, name: 'Produkt 4', image: 'https://via.placeholder.com/150' },
-    { id: 5, name: 'Produkt 5', image: 'https://via.placeholder.com/150' },
-    { id: 6, name: 'Produkt 6', image: 'https://via.placeholder.com/150' },
-    { id: 7, name: 'Produkt 7', image: 'https://via.placeholder.com/150' },
-    { id: 8, name: 'Produkt 8', image: 'https://via.placeholder.com/150' },
-    { id: 9, name: 'Produkt 9', image: 'https://via.placeholder.com/150' },
-    { id: 10, name: 'Produkt 10', image: 'https://via.placeholder.com/150' },
-  ]; */
 
   const scrollLeft1 = () => {
     carouselRef1.current.scrollBy({ left: -300, behavior: "smooth" });
@@ -184,24 +162,6 @@ function Home() {
           <Link to="produkter">Köp nu</Link>
         </button>
       </div>
-
-      {/* Förberedelse för att dra från backend */}
-      {/* <div className="container">
-      <div className="row my-4">
-        <div className="col-12">
-          <h3 className="text-center">Bästsäljare</h3>
-        </div>
-        {products.map(product => (
-          <div key={product._id} className="col-md-4">
-            <div className="card">
-              <img src={product.image} className="card-img-top" alt={product.name} />
-              <div className="card-body">
-                <h5 className="card-title">{product.name}</h5>
-                <p className="card-text">{product.price}</p>
-              </div>
-            </div>
-          </div>
-        ))} */}
 
       <h3 className="text-center my-4">Bästsäljare</h3>
 

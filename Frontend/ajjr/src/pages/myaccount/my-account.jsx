@@ -17,37 +17,6 @@ function MyAccount() {
     fetchOrders();
   }, []);
 
-  // const fetchOrders = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `${import.meta.env.VITE_API_URL}/api/orders`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("token")}`,
-
-  //         },
-  //         credentials: "include",
-  //         mode: "cors",
-  //       }
-  //     );
-  //     const data = await response.json();
-  //     console.log("orderdata", data);
-
-  //     if (Array.isArray(data)) {
-  //       setOrders(data);
-  //     } else {
-  //       setOrders([]);
-  //       console.error("Fetched orders are not an array:", data);
-  //     }
-  //   } catch (err) {
-  //     console.error("Failed to fetch orders:", err);
-  //     setOrders([]);
-  //   }
-  // };
-
-
-
-
   const fetchOrders = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -64,7 +33,7 @@ function MyAccount() {
       );
       const data = await response.json();
       console.log("Orderdata:", data); // Logga svaret
-  
+
       if (Array.isArray(data)) {
         setOrders(data);
       } else {
