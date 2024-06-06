@@ -65,7 +65,7 @@ function AdminPage() {
   };
 
   return (
-    <div className="backgroundstyle">
+    <div className="backgroundstyle h-1050">
       <Container className="formulor">
         <Card className="registercard w-100">
           <Card.Body>
